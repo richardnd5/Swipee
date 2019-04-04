@@ -1,20 +1,142 @@
-//
-//  ViewController.swift
-//  Swipee
-//
-//  Created by N Richard on 3/31/19.
-//  Copyright © 2019 N Richard. All rights reserved.
-//
-
 import UIKit
 
-class ViewController: UIViewController {
+protocol CallbackDelegate : class {
+    func accompTrackNoteOnCallback(_ sequencerPosition: Double)
+    func accompTrackNoteOffCallback()
+    func shrinkColorView()
+}
+
+protocol GameDelegate : class {
+    func UIActionOnSequencerPosition(_ sequencerPosition: Double)
+    func scorePoint()
+    func gameOver()
+    func changeGuessColor()
+}
+
+class ViewController: UIViewController, CallbackDelegate, GameDelegate {
+    
+    var homePage : HomePageView!
+    var playPage : PlayPageView!
+    
+    enum GameState {
+        case opening
+        case playing
+        case gameOver
+    }
+    
+    var gameState = GameState.opening
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        view.backgroundColor = UIColor(white: 0.8, alpha: 1.0)
+        loadHomePage()
+        setupSwipeGestures()
+        Sound.shared.delegate = self
+        Logic.shared.delegate = self
+        
+    }
+    
+    // MARK - UISetup
+    func loadHomePage(){
+        
+        homePage = HomePageView()
+        view.addSubview(homePage)
+        homePage.fillSuperview()
+        
+        homePage.playButton.addTarget(self, action: #selector(handlePlayButtonPressed), for: .touchUpInside)
+
+    }
+    
+    func loadPlayPage(){
+        
+        gameState = .playing
+        playPage = PlayPageView()
+        view.addSubview(playPage)
+        playPage.fillSuperview()
+        
+        playPage.restartButton.addTarget(self, action: #selector(handleRestartTap), for: .touchUpInside)
+    }
+    
+    func setupSwipeGestures(){
+        let swipeUp = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipe))
+        swipeUp.direction = .up
+        
+        let swipeDown = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipe))
+        swipeDown.direction = .down
+        
+        let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipe))
+        swipeLeft.direction = .left
+        
+        let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipe))
+        swipeRight.direction = .right
+        
+        view.addGestureRecognizer(swipeUp)
+        view.addGestureRecognizer(swipeDown)
+        view.addGestureRecognizer(swipeLeft)
+        view.addGestureRecognizer(swipeRight)
+        
+    }
+    
+    func scorePoint(){
+        playPage.updateScoreLabel()
+        Logic.shared.setNewNoteToGuess()
+        Sound.shared.incrementSequencerTempo()
+    }
+    
+    func gameOver(){
+        playPage.gameOver()
+        gameState = .gameOver
     }
 
+    func accompTrackNoteOnCallback(_ sequencerPosition: Double) {
+        Logic.shared.sequencerBeatDelegator(sequencerPosition)
+    }
+    
+    func accompTrackNoteOffCallback(){
+        shrinkColorView()
+    }
+    
+    // MARK - Dynamic UI Functions
+    func expandColorView(){
+        self.playPage.colorView.scaleTo(scaleTo: 1.05, time: 0.3)
+    }
+    
+    func shrinkColorView() {
+        self.playPage.colorView.scaleTo(scaleTo: 1.0, time: 0.4)
+    }
+    
+    func changeGuessColor(){
+        playPage.changeColorViewToColor(direction: Logic.shared.guessDirection)
+        playPage.changeCorrectSlot(direction: Logic.shared.guessDirection)
+    }
+    
+    func UIActionOnSequencerPosition(_ sequencerPosition: Double){
+        playPage.scaleUpAndDownSlotPosition(position: sequencerPosition)
+        expandColorView()
+    }
+    
+    // MARK - Gestures
+    @objc func handleSwipe(_ sender: UISwipeGestureRecognizer){
+        let direction = sender.direction
+        Sound.shared.playSwipeSound(direction)
+        
+        switch gameState {
+        case .opening:
+            return
+        case .playing:
+            Logic.shared.checkSwipeForGame(direction)
+        case .gameOver:
+            return
+        }
+    }
 
+    @objc func handlePlayButtonPressed(sender: UIButton){
+        homePage.fadeAndRemove(time: 1.0)
+        loadPlayPage()
+    }
+    
+    @objc func handleRestartTap(_ sender: UIButton){
+        gameState = .playing
+        playPage.restartGame()
+    }
 }
-

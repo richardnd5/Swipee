@@ -7,13 +7,29 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		224BBA282252BC7900DF9662 /* restartButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 224BBA272252BC7900DF9662 /* restartButton.png */; };
+		224BBA2A2253F94300DF9662 /* gameOverSound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 224BBA292253F94300DF9662 /* gameOverSound.mp3 */; };
+		224BBA2C2253F94E00DF9662 /* SoundEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224BBA2B2253F94D00DF9662 /* SoundEffect.swift */; };
 		2296E74A22519D9C000C05BF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2296E74922519D9C000C05BF /* AppDelegate.swift */; };
 		2296E74C22519D9C000C05BF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2296E74B22519D9C000C05BF /* ViewController.swift */; };
-		2296E74F22519D9C000C05BF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2296E74D22519D9C000C05BF /* Main.storyboard */; };
 		2296E75122519D9D000C05BF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2296E75022519D9D000C05BF /* Assets.xcassets */; };
 		2296E75422519D9D000C05BF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2296E75222519D9D000C05BF /* LaunchScreen.storyboard */; };
 		2296E75F22519D9D000C05BF /* SwipeeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2296E75E22519D9D000C05BF /* SwipeeTests.swift */; };
 		2296E76A22519D9D000C05BF /* SwipeeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2296E76922519D9D000C05BF /* SwipeeUITests.swift */; };
+		2296E77822519EF1000C05BF /* Haptics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2296E77722519EF1000C05BF /* Haptics.swift */; };
+		2296E77D2251A2F8000C05BF /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 2296E77C2251A2F8000C05BF /* libc++.tbd */; };
+		2296E77F2251A315000C05BF /* Sound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2296E77E2251A315000C05BF /* Sound.swift */; };
+		2296E7812251A326000C05BF /* SoundSampler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2296E7802251A326000C05BF /* SoundSampler.swift */; };
+		2296E7832251A385000C05BF /* Sampler in Resources */ = {isa = PBXBuildFile; fileRef = 2296E7822251A385000C05BF /* Sampler */; };
+		2296E7852252687D000C05BF /* Logic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2296E7842252687D000C05BF /* Logic.swift */; };
+		2296E78822527C58000C05BF /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2296E78622527C58000C05BF /* Button.swift */; };
+		2296E78922527C58000C05BF /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2296E78722527C58000C05BF /* UIViewExtension.swift */; };
+		2296E78C22527C5D000C05BF /* backButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 2296E78A22527C5D000C05BF /* backButton.png */; };
+		2296E78D22527C5D000C05BF /* playButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 2296E78B22527C5D000C05BF /* playButton.png */; };
+		2296E78F22527C6E000C05BF /* HomePageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2296E78E22527C6E000C05BF /* HomePageView.swift */; };
+		2296E79122527C82000C05BF /* PlayPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2296E79022527C82000C05BF /* PlayPageView.swift */; };
+		2296E79322527D69000C05BF /* AutoLayoutExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2296E79222527D69000C05BF /* AutoLayoutExtension.swift */; };
+		229ECE162255ED1200C20E43 /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229ECE152255ED1200C20E43 /* Global.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,10 +50,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		224BBA272252BC7900DF9662 /* restartButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = restartButton.png; sourceTree = "<group>"; };
+		224BBA292253F94300DF9662 /* gameOverSound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = gameOverSound.mp3; sourceTree = "<group>"; };
+		224BBA2B2253F94D00DF9662 /* SoundEffect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundEffect.swift; sourceTree = "<group>"; };
 		2296E74622519D9C000C05BF /* Swipee.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Swipee.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2296E74922519D9C000C05BF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2296E74B22519D9C000C05BF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		2296E74E22519D9C000C05BF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2296E75022519D9D000C05BF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2296E75322519D9D000C05BF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2296E75522519D9D000C05BF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -47,6 +65,20 @@
 		2296E76522519D9D000C05BF /* SwipeeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwipeeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2296E76922519D9D000C05BF /* SwipeeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeeUITests.swift; sourceTree = "<group>"; };
 		2296E76B22519D9D000C05BF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2296E77722519EF1000C05BF /* Haptics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Haptics.swift; sourceTree = "<group>"; };
+		2296E77C2251A2F8000C05BF /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		2296E77E2251A315000C05BF /* Sound.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sound.swift; sourceTree = "<group>"; };
+		2296E7802251A326000C05BF /* SoundSampler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundSampler.swift; sourceTree = "<group>"; };
+		2296E7822251A385000C05BF /* Sampler */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Sampler; sourceTree = "<group>"; };
+		2296E7842252687D000C05BF /* Logic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logic.swift; sourceTree = "<group>"; };
+		2296E78622527C58000C05BF /* Button.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
+		2296E78722527C58000C05BF /* UIViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
+		2296E78A22527C5D000C05BF /* backButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backButton.png; sourceTree = "<group>"; };
+		2296E78B22527C5D000C05BF /* playButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = playButton.png; sourceTree = "<group>"; };
+		2296E78E22527C6E000C05BF /* HomePageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageView.swift; sourceTree = "<group>"; };
+		2296E79022527C82000C05BF /* PlayPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayPageView.swift; sourceTree = "<group>"; };
+		2296E79222527D69000C05BF /* AutoLayoutExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoLayoutExtension.swift; sourceTree = "<group>"; };
+		229ECE152255ED1200C20E43 /* Global.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +86,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2296E77D2251A2F8000C05BF /* libc++.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,6 +114,7 @@
 				2296E75D22519D9D000C05BF /* SwipeeTests */,
 				2296E76822519D9D000C05BF /* SwipeeUITests */,
 				2296E74722519D9C000C05BF /* Products */,
+				2296E77B2251A2F8000C05BF /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -99,9 +133,21 @@
 			children = (
 				2296E74922519D9C000C05BF /* AppDelegate.swift */,
 				2296E74B22519D9C000C05BF /* ViewController.swift */,
-				2296E74D22519D9C000C05BF /* Main.storyboard */,
+				2296E78E22527C6E000C05BF /* HomePageView.swift */,
+				2296E79022527C82000C05BF /* PlayPageView.swift */,
+				2296E7842252687D000C05BF /* Logic.swift */,
+				2296E77E2251A315000C05BF /* Sound.swift */,
+				224BBA2B2253F94D00DF9662 /* SoundEffect.swift */,
+				2296E7802251A326000C05BF /* SoundSampler.swift */,
+				229ECE152255ED1200C20E43 /* Global.swift */,
+				2296E77722519EF1000C05BF /* Haptics.swift */,
+				2296E78622527C58000C05BF /* Button.swift */,
+				2296E78722527C58000C05BF /* UIViewExtension.swift */,
+				2296E79222527D69000C05BF /* AutoLayoutExtension.swift */,
+				229ECE172255ED7400C20E43 /* Image Assets */,
 				2296E75022519D9D000C05BF /* Assets.xcassets */,
 				2296E75222519D9D000C05BF /* LaunchScreen.storyboard */,
+				229ECE182255ED8F00C20E43 /* Audio Assets */,
 				2296E75522519D9D000C05BF /* Info.plist */,
 			);
 			path = Swipee;
@@ -123,6 +169,33 @@
 				2296E76B22519D9D000C05BF /* Info.plist */,
 			);
 			path = SwipeeUITests;
+			sourceTree = "<group>";
+		};
+		2296E77B2251A2F8000C05BF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2296E77C2251A2F8000C05BF /* libc++.tbd */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		229ECE172255ED7400C20E43 /* Image Assets */ = {
+			isa = PBXGroup;
+			children = (
+				2296E78A22527C5D000C05BF /* backButton.png */,
+				2296E78B22527C5D000C05BF /* playButton.png */,
+				224BBA272252BC7900DF9662 /* restartButton.png */,
+			);
+			path = "Image Assets";
+			sourceTree = "<group>";
+		};
+		229ECE182255ED8F00C20E43 /* Audio Assets */ = {
+			isa = PBXGroup;
+			children = (
+				2296E7822251A385000C05BF /* Sampler */,
+				224BBA292253F94300DF9662 /* gameOverSound.mp3 */,
+			);
+			path = "Audio Assets";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -193,6 +266,11 @@
 				TargetAttributes = {
 					2296E74522519D9C000C05BF = {
 						CreatedOnToolsVersion = 10.1;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 					2296E75922519D9D000C05BF = {
 						CreatedOnToolsVersion = 10.1;
@@ -229,9 +307,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2296E7832251A385000C05BF /* Sampler in Resources */,
+				2296E78D22527C5D000C05BF /* playButton.png in Resources */,
 				2296E75422519D9D000C05BF /* LaunchScreen.storyboard in Resources */,
+				224BBA282252BC7900DF9662 /* restartButton.png in Resources */,
+				2296E78C22527C5D000C05BF /* backButton.png in Resources */,
 				2296E75122519D9D000C05BF /* Assets.xcassets in Resources */,
-				2296E74F22519D9C000C05BF /* Main.storyboard in Resources */,
+				224BBA2A2253F94300DF9662 /* gameOverSound.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -256,8 +338,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2296E79322527D69000C05BF /* AutoLayoutExtension.swift in Sources */,
+				2296E78822527C58000C05BF /* Button.swift in Sources */,
+				224BBA2C2253F94E00DF9662 /* SoundEffect.swift in Sources */,
+				2296E79122527C82000C05BF /* PlayPageView.swift in Sources */,
+				2296E78F22527C6E000C05BF /* HomePageView.swift in Sources */,
+				229ECE162255ED1200C20E43 /* Global.swift in Sources */,
+				2296E77822519EF1000C05BF /* Haptics.swift in Sources */,
 				2296E74C22519D9C000C05BF /* ViewController.swift in Sources */,
 				2296E74A22519D9C000C05BF /* AppDelegate.swift in Sources */,
+				2296E7812251A326000C05BF /* SoundSampler.swift in Sources */,
+				2296E7852252687D000C05BF /* Logic.swift in Sources */,
+				2296E78922527C58000C05BF /* UIViewExtension.swift in Sources */,
+				2296E77F2251A315000C05BF /* Sound.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -293,14 +386,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		2296E74D22519D9C000C05BF /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				2296E74E22519D9C000C05BF /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		2296E75222519D9D000C05BF /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -434,6 +519,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = C6AQ322Q62;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = Swipee/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -452,6 +541,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = C6AQ322Q62;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = Swipee/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
