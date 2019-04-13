@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0914824E52932FD970CFEDA4 /* Pods_Swipee.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98527F8D47E55E893E4E0E9A /* Pods_Swipee.framework */; };
 		224BBA282252BC7900DF9662 /* restartButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 224BBA272252BC7900DF9662 /* restartButton.png */; };
 		224BBA2A2253F94300DF9662 /* gameOverSound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 224BBA292253F94300DF9662 /* gameOverSound.mp3 */; };
 		224BBA2C2253F94E00DF9662 /* SoundEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224BBA2B2253F94D00DF9662 /* SoundEffect.swift */; };
@@ -34,6 +35,8 @@
 		229ECE1E2256F2C700C20E43 /* ColorViewWithDirection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229ECE1D2256F2C700C20E43 /* ColorViewWithDirection.swift */; };
 		22C07CE822614A6A00268A19 /* PositionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C07CE722614A6A00268A19 /* PositionView.swift */; };
 		22FDADF9225705EA004C6191 /* ColorfulTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FDADF8225705EA004C6191 /* ColorfulTitleView.swift */; };
+		34117CA50AB08A7354281C41 /* Pods_SwipeeUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFCC0348A6EA036A5BB2A94F /* Pods_SwipeeUITests.framework */; };
+		68FBBBC14A021774C1405C55 /* Pods_SwipeeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81C70362FDE4A482120D1871 /* Pods_SwipeeTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +57,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1BE4522AF903F2379D37F9DA /* Pods-SwipeeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwipeeTests.release.xcconfig"; path = "Target Support Files/Pods-SwipeeTests/Pods-SwipeeTests.release.xcconfig"; sourceTree = "<group>"; };
 		2244830622628CBD0010FE6E /* backgroundMovieTest.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = backgroundMovieTest.mp4; sourceTree = "<group>"; };
 		224BBA272252BC7900DF9662 /* restartButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = restartButton.png; sourceTree = "<group>"; };
 		224BBA292253F94300DF9662 /* gameOverSound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = gameOverSound.mp3; sourceTree = "<group>"; };
@@ -88,6 +92,14 @@
 		229ECE1D2256F2C700C20E43 /* ColorViewWithDirection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorViewWithDirection.swift; sourceTree = "<group>"; };
 		22C07CE722614A6A00268A19 /* PositionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositionView.swift; sourceTree = "<group>"; };
 		22FDADF8225705EA004C6191 /* ColorfulTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorfulTitleView.swift; sourceTree = "<group>"; };
+		34925BC3CA647BE89751F7F3 /* Pods-SwipeeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwipeeTests.debug.xcconfig"; path = "Target Support Files/Pods-SwipeeTests/Pods-SwipeeTests.debug.xcconfig"; sourceTree = "<group>"; };
+		4229B296CCBDBF8102E48CE0 /* Pods-Swipee.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Swipee.release.xcconfig"; path = "Target Support Files/Pods-Swipee/Pods-Swipee.release.xcconfig"; sourceTree = "<group>"; };
+		79B99FBEE4F0D773C076DE36 /* Pods-Swipee.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Swipee.debug.xcconfig"; path = "Target Support Files/Pods-Swipee/Pods-Swipee.debug.xcconfig"; sourceTree = "<group>"; };
+		81C70362FDE4A482120D1871 /* Pods_SwipeeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwipeeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8BDEEEA7D838BB3B187FA6ED /* Pods-SwipeeUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwipeeUITests.debug.xcconfig"; path = "Target Support Files/Pods-SwipeeUITests/Pods-SwipeeUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		91A52ACBA92A878789844019 /* Pods-SwipeeUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwipeeUITests.release.xcconfig"; path = "Target Support Files/Pods-SwipeeUITests/Pods-SwipeeUITests.release.xcconfig"; sourceTree = "<group>"; };
+		98527F8D47E55E893E4E0E9A /* Pods_Swipee.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Swipee.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AFCC0348A6EA036A5BB2A94F /* Pods_SwipeeUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwipeeUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +108,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2296E77D2251A2F8000C05BF /* libc++.tbd in Frameworks */,
+				0914824E52932FD970CFEDA4 /* Pods_Swipee.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -103,6 +116,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				68FBBBC14A021774C1405C55 /* Pods_SwipeeTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -110,12 +124,27 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				34117CA50AB08A7354281C41 /* Pods_SwipeeUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0782BD6BD96BA99E714B288D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				79B99FBEE4F0D773C076DE36 /* Pods-Swipee.debug.xcconfig */,
+				4229B296CCBDBF8102E48CE0 /* Pods-Swipee.release.xcconfig */,
+				34925BC3CA647BE89751F7F3 /* Pods-SwipeeTests.debug.xcconfig */,
+				1BE4522AF903F2379D37F9DA /* Pods-SwipeeTests.release.xcconfig */,
+				8BDEEEA7D838BB3B187FA6ED /* Pods-SwipeeUITests.debug.xcconfig */,
+				91A52ACBA92A878789844019 /* Pods-SwipeeUITests.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		2296E73D22519D9C000C05BF = {
 			isa = PBXGroup;
 			children = (
@@ -124,6 +153,7 @@
 				2296E76822519D9D000C05BF /* SwipeeUITests */,
 				2296E74722519D9C000C05BF /* Products */,
 				2296E77B2251A2F8000C05BF /* Frameworks */,
+				0782BD6BD96BA99E714B288D /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -188,6 +218,9 @@
 			isa = PBXGroup;
 			children = (
 				2296E77C2251A2F8000C05BF /* libc++.tbd */,
+				98527F8D47E55E893E4E0E9A /* Pods_Swipee.framework */,
+				81C70362FDE4A482120D1871 /* Pods_SwipeeTests.framework */,
+				AFCC0348A6EA036A5BB2A94F /* Pods_SwipeeUITests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -227,6 +260,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2296E76E22519D9D000C05BF /* Build configuration list for PBXNativeTarget "Swipee" */;
 			buildPhases = (
+				2183A5613E09A063FC89BB68 /* [CP] Check Pods Manifest.lock */,
 				2296E74222519D9C000C05BF /* Sources */,
 				2296E74322519D9C000C05BF /* Frameworks */,
 				2296E74422519D9C000C05BF /* Resources */,
@@ -244,6 +278,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2296E77122519D9D000C05BF /* Build configuration list for PBXNativeTarget "SwipeeTests" */;
 			buildPhases = (
+				113B71322C6BA45EB3DBABCC /* [CP] Check Pods Manifest.lock */,
 				2296E75622519D9D000C05BF /* Sources */,
 				2296E75722519D9D000C05BF /* Frameworks */,
 				2296E75822519D9D000C05BF /* Resources */,
@@ -262,6 +297,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2296E77422519D9D000C05BF /* Build configuration list for PBXNativeTarget "SwipeeUITests" */;
 			buildPhases = (
+				1BDD6AF2F2035ED851D79E47 /* [CP] Check Pods Manifest.lock */,
 				2296E76122519D9D000C05BF /* Sources */,
 				2296E76222519D9D000C05BF /* Frameworks */,
 				2296E76322519D9D000C05BF /* Resources */,
@@ -357,6 +393,75 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		113B71322C6BA45EB3DBABCC /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SwipeeTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		1BDD6AF2F2035ED851D79E47 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SwipeeUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2183A5613E09A063FC89BB68 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Swipee-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		2296E74222519D9C000C05BF /* Sources */ = {
@@ -544,6 +649,7 @@
 		};
 		2296E76F22519D9D000C05BF /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 79B99FBEE4F0D773C076DE36 /* Pods-Swipee.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -566,6 +672,7 @@
 		};
 		2296E77022519D9D000C05BF /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4229B296CCBDBF8102E48CE0 /* Pods-Swipee.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -588,6 +695,7 @@
 		};
 		2296E77222519D9D000C05BF /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 34925BC3CA647BE89751F7F3 /* Pods-SwipeeTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -609,6 +717,7 @@
 		};
 		2296E77322519D9D000C05BF /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1BE4522AF903F2379D37F9DA /* Pods-SwipeeTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -630,6 +739,7 @@
 		};
 		2296E77522519D9D000C05BF /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8BDEEEA7D838BB3B187FA6ED /* Pods-SwipeeUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -650,6 +760,7 @@
 		};
 		2296E77622519D9D000C05BF /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 91A52ACBA92A878789844019 /* Pods-SwipeeUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

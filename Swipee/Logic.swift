@@ -12,7 +12,7 @@ class Logic {
     var guessSubmitted = false
     
     init() {
-        timeRange = 1.5...2.5
+        timeRange = 1.5...3.1
         loadHighScore()
     }
     
