@@ -30,6 +30,10 @@
 		2296E79122527C82000C05BF /* PlayPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2296E79022527C82000C05BF /* PlayPageView.swift */; };
 		2296E79322527D69000C05BF /* AutoLayoutExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2296E79222527D69000C05BF /* AutoLayoutExtension.swift */; };
 		229ECE162255ED1200C20E43 /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229ECE152255ED1200C20E43 /* Global.swift */; };
+		229ECE1C2256EF8800C20E43 /* TeachingPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229ECE1B2256EF8800C20E43 /* TeachingPageView.swift */; };
+		229ECE1E2256F2C700C20E43 /* ColorViewWithDirection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229ECE1D2256F2C700C20E43 /* ColorViewWithDirection.swift */; };
+		22C07CE822614A6A00268A19 /* PositionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C07CE722614A6A00268A19 /* PositionView.swift */; };
+		22FDADF9225705EA004C6191 /* ColorfulTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FDADF8225705EA004C6191 /* ColorfulTitleView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +54,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2244830622628CBD0010FE6E /* backgroundMovieTest.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = backgroundMovieTest.mp4; sourceTree = "<group>"; };
 		224BBA272252BC7900DF9662 /* restartButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = restartButton.png; sourceTree = "<group>"; };
 		224BBA292253F94300DF9662 /* gameOverSound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = gameOverSound.mp3; sourceTree = "<group>"; };
 		224BBA2B2253F94D00DF9662 /* SoundEffect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundEffect.swift; sourceTree = "<group>"; };
@@ -79,6 +84,10 @@
 		2296E79022527C82000C05BF /* PlayPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayPageView.swift; sourceTree = "<group>"; };
 		2296E79222527D69000C05BF /* AutoLayoutExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoLayoutExtension.swift; sourceTree = "<group>"; };
 		229ECE152255ED1200C20E43 /* Global.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
+		229ECE1B2256EF8800C20E43 /* TeachingPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeachingPageView.swift; sourceTree = "<group>"; };
+		229ECE1D2256F2C700C20E43 /* ColorViewWithDirection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorViewWithDirection.swift; sourceTree = "<group>"; };
+		22C07CE722614A6A00268A19 /* PositionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositionView.swift; sourceTree = "<group>"; };
+		22FDADF8225705EA004C6191 /* ColorfulTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorfulTitleView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,12 +143,16 @@
 				2296E74922519D9C000C05BF /* AppDelegate.swift */,
 				2296E74B22519D9C000C05BF /* ViewController.swift */,
 				2296E78E22527C6E000C05BF /* HomePageView.swift */,
-				2296E79022527C82000C05BF /* PlayPageView.swift */,
+				229ECE1B2256EF8800C20E43 /* TeachingPageView.swift */,
+				22FDADF8225705EA004C6191 /* ColorfulTitleView.swift */,
+				229ECE1D2256F2C700C20E43 /* ColorViewWithDirection.swift */,
+				22C07CE922614BAE00268A19 /* Play Page */,
 				2296E7842252687D000C05BF /* Logic.swift */,
 				2296E77E2251A315000C05BF /* Sound.swift */,
 				224BBA2B2253F94D00DF9662 /* SoundEffect.swift */,
 				2296E7802251A326000C05BF /* SoundSampler.swift */,
 				229ECE152255ED1200C20E43 /* Global.swift */,
+				2244830622628CBD0010FE6E /* backgroundMovieTest.mp4 */,
 				2296E77722519EF1000C05BF /* Haptics.swift */,
 				2296E78622527C58000C05BF /* Button.swift */,
 				2296E78722527C58000C05BF /* UIViewExtension.swift */,
@@ -196,6 +209,15 @@
 				224BBA292253F94300DF9662 /* gameOverSound.mp3 */,
 			);
 			path = "Audio Assets";
+			sourceTree = "<group>";
+		};
+		22C07CE922614BAE00268A19 /* Play Page */ = {
+			isa = PBXGroup;
+			children = (
+				2296E79022527C82000C05BF /* PlayPageView.swift */,
+				22C07CE722614A6A00268A19 /* PositionView.swift */,
+			);
+			path = "Play Page";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -266,6 +288,7 @@
 				TargetAttributes = {
 					2296E74522519D9C000C05BF = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1020;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -274,10 +297,12 @@
 					};
 					2296E75922519D9D000C05BF = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1020;
 						TestTargetID = 2296E74522519D9C000C05BF;
 					};
 					2296E76422519D9D000C05BF = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1020;
 						TestTargetID = 2296E74522519D9C000C05BF;
 					};
 				};
@@ -343,9 +368,13 @@
 				224BBA2C2253F94E00DF9662 /* SoundEffect.swift in Sources */,
 				2296E79122527C82000C05BF /* PlayPageView.swift in Sources */,
 				2296E78F22527C6E000C05BF /* HomePageView.swift in Sources */,
+				22FDADF9225705EA004C6191 /* ColorfulTitleView.swift in Sources */,
+				22C07CE822614A6A00268A19 /* PositionView.swift in Sources */,
 				229ECE162255ED1200C20E43 /* Global.swift in Sources */,
+				229ECE1C2256EF8800C20E43 /* TeachingPageView.swift in Sources */,
 				2296E77822519EF1000C05BF /* Haptics.swift in Sources */,
 				2296E74C22519D9C000C05BF /* ViewController.swift in Sources */,
+				229ECE1E2256F2C700C20E43 /* ColorViewWithDirection.swift in Sources */,
 				2296E74A22519D9C000C05BF /* AppDelegate.swift in Sources */,
 				2296E7812251A326000C05BF /* SoundSampler.swift in Sources */,
 				2296E7852252687D000C05BF /* Logic.swift in Sources */,
@@ -530,7 +559,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = come.byeah.Swipee;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -552,7 +581,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = come.byeah.Swipee;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -572,7 +601,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = come.byeah.SwipeeTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Swipee.app/Swipee";
 			};
@@ -593,7 +622,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = come.byeah.SwipeeTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Swipee.app/Swipee";
 			};
@@ -613,7 +642,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = come.byeah.SwipeeUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = Swipee;
 			};
@@ -633,7 +662,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = come.byeah.SwipeeUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = Swipee;
 			};

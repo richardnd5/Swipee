@@ -1,14 +1,11 @@
 import AudioKit
 
-class SoundEffect {
+class SoundEffect : AKMIDISampler {
     
     private var audioFile : AKAudioFile!
-    var sampler = AKMIDISampler()
-    
-    private var name : String!
-    private var volume : Double!
     
     init(fileName: String, volume: Double = 1.0) {
+        super.init()
         self.volume = volume
         audioFile = loadAudioFile("\(fileName)")
         setupSampler()
@@ -27,25 +24,20 @@ class SoundEffect {
     }
     
     private func setupSampler(){
-        do { try sampler.loadAudioFile(audioFile!) } catch { print("Couldn't load the audio file. Here's why:     \(error)") }
-        sampler.enableMIDI()
-        sampler.volume = volume
+        do { try loadAudioFile(audioFile!) } catch { print("Couldn't load the audio file. Here's why:     \(error)") }
+        enableMIDI()
+        volume = volume
     }
     
     func play(){
-        do { try sampler.play(noteNumber: 60, velocity: 127, channel: 1) } catch { print("couldn't play the note. Why? Here:  \(error)") }
+        do { try play(noteNumber: 60, velocity: 127, channel: 1) } catch { print("couldn't play the note. Why? Here:  \(error)") }
     }
     
     func playRandomPitched(semitoneRange: MIDINoteNumber = 7){
-        
         let lowRange : MIDINoteNumber = 57
         let highRange = lowRange+semitoneRange-3
         let randomNote = MIDINoteNumber.random(in: lowRange...highRange)
-        do { try sampler.play(noteNumber: randomNote, velocity: 127, channel: 1) } catch { print("couldn't play the note. Why? Here:  \(error)") }
-    }
-    
-    func setVolume(to volume : Double = 1.0){
-        sampler.volume = volume
+        do { try play(noteNumber: randomNote, velocity: 127, channel: 1) } catch { print("couldn't play the note. Why? Here:  \(error)") }
     }
 }
 

@@ -12,7 +12,7 @@ class Logic {
     var guessSubmitted = false
     
     init() {
-        timeRange = 3.5...4.5
+        timeRange = 1.5...2.5
         loadHighScore()
     }
     
@@ -67,7 +67,6 @@ class Logic {
                 return false
             }
         } else {
-            
             return false
         }
         return true
@@ -75,13 +74,14 @@ class Logic {
     
     func incrementScore(){
         score += 1
+        if score > highScore {
+            setHighScore()
+        }
     }
     
     func setHighScore(){
-        
         highScore = score
         UserDefaults.standard.set(highScore, forKey: "highScore")
-
     }
     
     func loadHighScore(){
@@ -91,7 +91,6 @@ class Logic {
         }
     }
     
-    // MARK - Game Functionality
     func checkSwipeForGame(_ swipe: UISwipeGestureRecognizer.Direction){
         let sequencerTime = Sound.shared.sequencer.currentRelativePosition.beats
         if Logic.shared.checkSwipe(direction: swipe, time: sequencerTime) {
@@ -105,9 +104,10 @@ class Logic {
         
         delegate.UIActionOnSequencerPosition(position)
 
-        if Sound.shared.sequencer.tempo > 250 {
-            let positionInt = Int(position.rounded())
-            if positionInt % 2 == 0 {
+        if Sound.shared.sequencer.tempo > 100 {
+            let rounded = (position*10).rounded()/10
+
+            if rounded.truncatingRemainder(dividingBy: 1) == 0 {
                 Haptics.shared.vibrate()
             }
         } else {
@@ -119,7 +119,7 @@ class Logic {
             delegate.changeGuessColor()
         }
         
-        if (5.0...6.0).contains(position) && !Logic.shared.guessSubmitted {
+        if (3.0...4.0).contains(position) && !Logic.shared.guessSubmitted {
             delegate.gameOver()
         }
         
@@ -139,4 +139,20 @@ class Logic {
             return .black
         }
     }
+    
+    func startGame(){
+        Logic.shared.score = 0
+        setNewNoteToGuess()
+        Sound.shared.playSequencer()
+    }
+    
+    func endGame(){
+        Sound.shared.stopSequencer()
+        Sound.shared.playGameOverSound()
+        
+        if Logic.shared.score > Logic.shared.highScore {
+            Logic.shared.setHighScore()
+        }
+    }
+    
 }
