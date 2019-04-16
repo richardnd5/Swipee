@@ -30,7 +30,6 @@ class HomePageView: UIView {
     func setupConstraints(){
         let safe = safeAreaLayoutGuide
         playButton.translatesAutoresizingMaskIntoConstraints = false
-//        playButton.centerYAnchor.constraint(equalTo: centerYAnchor, constant: 100).isActive = true
         playButton.topAnchor.constraint(equalTo: safe.topAnchor, constant: 50).isActive = true
         playButton.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
         playButton.widthAnchor.constraint(equalToConstant: frame.width/3).isActive = true

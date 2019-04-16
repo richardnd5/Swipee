@@ -20,7 +20,6 @@ class ColorViewWithDirection: UIView {
         setImageViewConstraints()
         arrowView.alpha = 0.0
 
-        
     }
     
     func setImageViewConstraints(){

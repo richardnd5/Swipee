@@ -77,7 +77,6 @@ class Sound {
         
         for i in 0..<8 {
             accompTrack.add(midiNoteData: AKMIDINoteData(noteNumber: MIDINoteNumber.random(in: 60...63), velocity: MIDIVelocity.random(in: 0...127), channel: 1, duration: AKDuration(beats: 0.3), position: AKDuration(beats: Double(i)/2)))
-            print("putting the kicks in: \(Double(i)/2)")
         }
 
         sequencer.setTempo(startingTempo)

@@ -11,6 +11,13 @@
 		224BBA282252BC7900DF9662 /* restartButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 224BBA272252BC7900DF9662 /* restartButton.png */; };
 		224BBA2A2253F94300DF9662 /* gameOverSound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 224BBA292253F94300DF9662 /* gameOverSound.mp3 */; };
 		224BBA2C2253F94E00DF9662 /* SoundEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224BBA2B2253F94D00DF9662 /* SoundEffect.swift */; };
+		226F5BCC22659B5B00139B9E /* TutorialPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226F5BCB22659B5B00139B9E /* TutorialPageView.swift */; };
+		226F5BCE22659FBF00139B9E /* BorderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226F5BCD22659FBF00139B9E /* BorderView.swift */; };
+		226F5BD32266511700139B9E /* upArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 226F5BCF2266511600139B9E /* upArrow.png */; };
+		226F5BD42266511700139B9E /* leftArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 226F5BD02266511700139B9E /* leftArrow.png */; };
+		226F5BD52266511700139B9E /* downArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 226F5BD12266511700139B9E /* downArrow.png */; };
+		226F5BD62266511700139B9E /* rightArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 226F5BD22266511700139B9E /* rightArrow.png */; };
+		226F5BD8226651DA00139B9E /* ImageViewClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226F5BD7226651DA00139B9E /* ImageViewClass.swift */; };
 		2296E74A22519D9C000C05BF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2296E74922519D9C000C05BF /* AppDelegate.swift */; };
 		2296E74C22519D9C000C05BF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2296E74B22519D9C000C05BF /* ViewController.swift */; };
 		2296E75122519D9D000C05BF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2296E75022519D9D000C05BF /* Assets.xcassets */; };
@@ -31,7 +38,7 @@
 		2296E79122527C82000C05BF /* PlayPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2296E79022527C82000C05BF /* PlayPageView.swift */; };
 		2296E79322527D69000C05BF /* AutoLayoutExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2296E79222527D69000C05BF /* AutoLayoutExtension.swift */; };
 		229ECE162255ED1200C20E43 /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229ECE152255ED1200C20E43 /* Global.swift */; };
-		229ECE1C2256EF8800C20E43 /* TeachingPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229ECE1B2256EF8800C20E43 /* TeachingPageView.swift */; };
+		229ECE1C2256EF8800C20E43 /* OpeningPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229ECE1B2256EF8800C20E43 /* OpeningPageView.swift */; };
 		229ECE1E2256F2C700C20E43 /* ColorViewWithDirection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229ECE1D2256F2C700C20E43 /* ColorViewWithDirection.swift */; };
 		22C07CE822614A6A00268A19 /* PositionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C07CE722614A6A00268A19 /* PositionView.swift */; };
 		22FDADF9225705EA004C6191 /* ColorfulTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FDADF8225705EA004C6191 /* ColorfulTitleView.swift */; };
@@ -61,6 +68,13 @@
 		224BBA272252BC7900DF9662 /* restartButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = restartButton.png; sourceTree = "<group>"; };
 		224BBA292253F94300DF9662 /* gameOverSound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = gameOverSound.mp3; sourceTree = "<group>"; };
 		224BBA2B2253F94D00DF9662 /* SoundEffect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundEffect.swift; sourceTree = "<group>"; };
+		226F5BCB22659B5B00139B9E /* TutorialPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialPageView.swift; sourceTree = "<group>"; };
+		226F5BCD22659FBF00139B9E /* BorderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderView.swift; sourceTree = "<group>"; };
+		226F5BCF2266511600139B9E /* upArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = upArrow.png; sourceTree = "<group>"; };
+		226F5BD02266511700139B9E /* leftArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = leftArrow.png; sourceTree = "<group>"; };
+		226F5BD12266511700139B9E /* downArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = downArrow.png; sourceTree = "<group>"; };
+		226F5BD22266511700139B9E /* rightArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rightArrow.png; sourceTree = "<group>"; };
+		226F5BD7226651DA00139B9E /* ImageViewClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewClass.swift; sourceTree = "<group>"; };
 		2296E74622519D9C000C05BF /* Swipee.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Swipee.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2296E74922519D9C000C05BF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2296E74B22519D9C000C05BF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -87,7 +101,7 @@
 		2296E79022527C82000C05BF /* PlayPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayPageView.swift; sourceTree = "<group>"; };
 		2296E79222527D69000C05BF /* AutoLayoutExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoLayoutExtension.swift; sourceTree = "<group>"; };
 		229ECE152255ED1200C20E43 /* Global.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
-		229ECE1B2256EF8800C20E43 /* TeachingPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeachingPageView.swift; sourceTree = "<group>"; };
+		229ECE1B2256EF8800C20E43 /* OpeningPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpeningPageView.swift; sourceTree = "<group>"; };
 		229ECE1D2256F2C700C20E43 /* ColorViewWithDirection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorViewWithDirection.swift; sourceTree = "<group>"; };
 		22C07CE722614A6A00268A19 /* PositionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositionView.swift; sourceTree = "<group>"; };
 		22FDADF8225705EA004C6191 /* ColorfulTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorfulTitleView.swift; sourceTree = "<group>"; };
@@ -143,6 +157,15 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		226F5BD9226653C700139B9E /* Tutorial Page */ = {
+			isa = PBXGroup;
+			children = (
+				226F5BCB22659B5B00139B9E /* TutorialPageView.swift */,
+				226F5BCD22659FBF00139B9E /* BorderView.swift */,
+			);
+			path = "Tutorial Page";
+			sourceTree = "<group>";
+		};
 		2296E73D22519D9C000C05BF = {
 			isa = PBXGroup;
 			children = (
@@ -171,9 +194,11 @@
 				2296E74922519D9C000C05BF /* AppDelegate.swift */,
 				2296E74B22519D9C000C05BF /* ViewController.swift */,
 				2296E78E22527C6E000C05BF /* HomePageView.swift */,
-				229ECE1B2256EF8800C20E43 /* TeachingPageView.swift */,
+				229ECE1B2256EF8800C20E43 /* OpeningPageView.swift */,
+				226F5BD9226653C700139B9E /* Tutorial Page */,
 				22FDADF8225705EA004C6191 /* ColorfulTitleView.swift */,
 				229ECE1D2256F2C700C20E43 /* ColorViewWithDirection.swift */,
+				226F5BD7226651DA00139B9E /* ImageViewClass.swift */,
 				22C07CE922614BAE00268A19 /* Play Page */,
 				2296E7842252687D000C05BF /* Logic.swift */,
 				2296E77E2251A315000C05BF /* Sound.swift */,
@@ -228,6 +253,10 @@
 				2296E78A22527C5D000C05BF /* backButton.png */,
 				2296E78B22527C5D000C05BF /* playButton.png */,
 				224BBA272252BC7900DF9662 /* restartButton.png */,
+				226F5BD12266511700139B9E /* downArrow.png */,
+				226F5BD02266511700139B9E /* leftArrow.png */,
+				226F5BD22266511700139B9E /* rightArrow.png */,
+				226F5BCF2266511600139B9E /* upArrow.png */,
 			);
 			path = "Image Assets";
 			sourceTree = "<group>";
@@ -368,10 +397,14 @@
 				2296E7832251A385000C05BF /* Sampler in Resources */,
 				2296E78D22527C5D000C05BF /* playButton.png in Resources */,
 				2296E75422519D9D000C05BF /* LaunchScreen.storyboard in Resources */,
+				226F5BD52266511700139B9E /* downArrow.png in Resources */,
 				224BBA282252BC7900DF9662 /* restartButton.png in Resources */,
 				2296E78C22527C5D000C05BF /* backButton.png in Resources */,
 				2296E75122519D9D000C05BF /* Assets.xcassets in Resources */,
+				226F5BD32266511700139B9E /* upArrow.png in Resources */,
+				226F5BD62266511700139B9E /* rightArrow.png in Resources */,
 				224BBA2A2253F94300DF9662 /* gameOverSound.mp3 in Resources */,
+				226F5BD42266511700139B9E /* leftArrow.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -472,12 +505,15 @@
 				2296E78F22527C6E000C05BF /* HomePageView.swift in Sources */,
 				22FDADF9225705EA004C6191 /* ColorfulTitleView.swift in Sources */,
 				22C07CE822614A6A00268A19 /* PositionView.swift in Sources */,
+				226F5BCC22659B5B00139B9E /* TutorialPageView.swift in Sources */,
+				226F5BCE22659FBF00139B9E /* BorderView.swift in Sources */,
 				229ECE162255ED1200C20E43 /* Global.swift in Sources */,
-				229ECE1C2256EF8800C20E43 /* TeachingPageView.swift in Sources */,
+				229ECE1C2256EF8800C20E43 /* OpeningPageView.swift in Sources */,
 				2296E77822519EF1000C05BF /* Haptics.swift in Sources */,
 				2296E74C22519D9C000C05BF /* ViewController.swift in Sources */,
 				229ECE1E2256F2C700C20E43 /* ColorViewWithDirection.swift in Sources */,
 				2296E74A22519D9C000C05BF /* AppDelegate.swift in Sources */,
+				226F5BD8226651DA00139B9E /* ImageViewClass.swift in Sources */,
 				2296E7812251A326000C05BF /* SoundSampler.swift in Sources */,
 				2296E7852252687D000C05BF /* Logic.swift in Sources */,
 				2296E78922527C58000C05BF /* UIViewExtension.swift in Sources */,

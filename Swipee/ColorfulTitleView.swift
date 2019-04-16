@@ -32,7 +32,7 @@ class ColorfulTitleView: UIView {
             let charLabel = UILabel()
             charLabel.text = char
             charLabel.font = UIFont(name: "Avenir Light", size: 40)
-            charLabel.textColor = randomColor()
+            charLabel.textColor = randomSolidColor()
             charLabel.adjustsFontSizeToFitWidth = true
             charLabel.textAlignment = .center
             charLabel.alpha = 0.0
@@ -56,7 +56,7 @@ class ColorfulTitleView: UIView {
     
     func changeFontColorOfTitleCharacter(view: UIView){
         let v = view as! UILabel
-        v.textColor = randomColor()
+        v.textColor = randomSolidColor()
     }
     
     func scaleCharacterUpAndDown(_ view: UIView){

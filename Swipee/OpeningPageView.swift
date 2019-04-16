@@ -1,8 +1,6 @@
 import UIKit
 
-
-
-class TeachingPageView: UIView {
+class OpeningPageView: UIView {
     
     var topView = UIView()
     var leftView = UIView()
@@ -13,6 +11,16 @@ class TeachingPageView: UIView {
     var positionStackView = UIStackView()
     
     var titleView : ColorfulTitleView!
+    
+    
+    var titleTopAnchor : NSLayoutConstraint!
+    var titleYAnchor : NSLayoutConstraint!
+    var titleHeightAnchor: NSLayoutConstraint!
+    var titleWidthAnchor: NSLayoutConstraint!
+    var titleXAnchor : NSLayoutConstraint!
+    
+    var playButton : Button!
+
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -36,6 +44,10 @@ class TeachingPageView: UIView {
         addSubview(leftView)
         addSubview(rightView)
         addSubview(bottomView)
+        
+        playButton = Button(frame: .zero, name: "playButton")
+        addSubview(playButton)
+        playButton.alpha = 0
         
         setupTitle()
         
@@ -72,12 +84,49 @@ class TeachingPageView: UIView {
         rightView.widthAnchor.constraint(equalToConstant: viewSize).isActive = true
         
         titleView.translatesAutoresizingMaskIntoConstraints = false
-        titleView.leadingAnchor.constraint(equalTo: leftView.trailingAnchor,constant: 10).isActive = true
-        titleView.trailingAnchor.constraint(equalTo: rightView.leadingAnchor, constant: -10).isActive = true
-        titleView.heightAnchor.constraint(equalToConstant: 40).isActive = true
-        titleView.centerYAnchor.constraint(equalTo: safe.centerYAnchor, constant: -30).isActive = true
+        
+        
+        titleYAnchor = titleView.centerYAnchor.constraint(equalTo: safe.centerYAnchor, constant: -30)
+        titleHeightAnchor = titleView.heightAnchor.constraint(equalToConstant: 40)
+        titleWidthAnchor = titleView.widthAnchor.constraint(equalToConstant: ScreenSize.width/1.5)
+        titleXAnchor = titleView.centerXAnchor.constraint(equalTo: centerXAnchor)
+        titleTopAnchor = titleView.topAnchor.constraint(equalTo: safe.topAnchor, constant: 20)
+
+        
+        titleYAnchor.isActive = true
+        titleHeightAnchor.isActive = true
+        titleWidthAnchor.isActive = true
+        titleXAnchor.isActive = true
+        titleTopAnchor.isActive = false
+        
+        
+        playButton.translatesAutoresizingMaskIntoConstraints = false
+        playButton.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
+        playButton.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+        playButton.widthAnchor.constraint(equalToConstant: ScreenSize.width/1.5).isActive = true
+        playButton.widthAnchor.constraint(equalTo: playButton.heightAnchor, multiplier: 1).isActive = true
+        
+        
 
         fadePageIn()
+    }
+    
+    func moveTitleUp(){
+        
+        titleYAnchor.isActive = false
+        titleTopAnchor.isActive = true
+        titleWidthAnchor.constant = ScreenSize.width/2
+
+        UIView.animate(withDuration: 0.5, delay: 0.0, options: .curveEaseInOut, animations: {
+            self.layoutIfNeeded()
+            
+        }, completion: { _ in
+            self.fadePlayButtonIn()
+        })
+    }
+    
+    func fadePlayButtonIn(){
+        playButton.fadeIn(1.0)
     }
     
     func setupColorView(){
@@ -158,6 +207,13 @@ class TeachingPageView: UIView {
     func fadePageIn(){
         alpha = 0.0
         fadeTo(opacity: 1.0, time: 1.5)
+    }
+    
+    func handleSwipe(_ direction: UISwipeGestureRecognizer.Direction){
+        if direction == .up {
+            print("it's up")
+            moveTitleUp()
+        }
     }
     
     required init?(coder aDecoder: NSCoder) {

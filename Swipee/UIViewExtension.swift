@@ -249,13 +249,13 @@ extension UIView {
         })
     }
     
-    func scaleTo(scaleTo: CGFloat, time: Double, _ completion: @escaping () -> () = {}, isSpringy: Bool = true ){
+    func scaleTo(scaleTo: CGFloat, time: Double, _ completion: @escaping () -> () = {}, isSpringy: Bool = true, delay: TimeInterval = 0 ){
         
         if isSpringy {
         UIView.animate(
             withDuration: time,
-            delay: 0,
-            usingSpringWithDamping: 1.0,
+            delay: delay,
+            usingSpringWithDamping: 0.5,
             initialSpringVelocity: 1.0,
             options: .curveEaseInOut,
             animations: {
@@ -364,5 +364,21 @@ extension UIView {
     
     func randomColor() -> UIColor {
         return UIColor(hue: CGFloat.random(in: 0.0...1.0), saturation: 1.0, brightness: 1.0, alpha: 1.0)
+    }
+    
+    func randomSolidColor() -> UIColor {
+        let num = Int.random(in: 0...3)
+        switch num {
+        case 0:
+            return .red
+        case 1:
+            return .green
+        case 2:
+            return .purple
+        case 3:
+            return .blue
+        default:
+            return .orange
+        }
     }
 }

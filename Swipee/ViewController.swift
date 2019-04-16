@@ -11,7 +11,6 @@ protocol GameDelegate : class {
     func scorePoint()
     func gameOver()
     func changeGuessColor()
-    
 }
 
 protocol TitleDelegate : class {
@@ -22,16 +21,17 @@ class ViewController: UIViewController, CallbackDelegate, GameDelegate, TitleDel
     
     var homePage : HomePageView!
     var playPage : PlayPageView!
-    var teachingPage : TeachingPageView!
+    var openingPage : OpeningPageView!
+    var tutorialPage : TutorialPageView!
     
     enum GameState {
         case opening
-        case teaching
+        case tutorial
         case playing
         case gameOver
     }
     
-    var gameState = GameState.teaching
+    var gameState = GameState.opening
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,9 +45,11 @@ class ViewController: UIViewController, CallbackDelegate, GameDelegate, TitleDel
     
     // MARK - UISetup
     func loadTeachingPage(){
-        teachingPage = TeachingPageView()
-        view.addSubview(teachingPage)
-        teachingPage.fillSuperview()
+        openingPage = OpeningPageView()
+        view.addSubview(openingPage)
+        openingPage.fillSuperview()
+        
+        openingPage.playButton.addTarget(self, action: #selector(handlePlayButtonPressed), for: .touchUpInside)
     }
     
     func loadHomePage(){
@@ -68,6 +70,14 @@ class ViewController: UIViewController, CallbackDelegate, GameDelegate, TitleDel
         playPage.fillSuperview()
         
         playPage.restartButton.addTarget(self, action: #selector(handleRestartTap), for: .touchUpInside)
+    }
+    
+    func loadTutorialPage(){
+        
+        gameState = .tutorial
+        tutorialPage = TutorialPageView()
+        view.addSubview(tutorialPage)
+        tutorialPage.fillSuperview()
     }
     
     func setupSwipeGestures(){
@@ -135,12 +145,14 @@ class ViewController: UIViewController, CallbackDelegate, GameDelegate, TitleDel
         
         switch gameState {
         case .opening:
-            return
-        case .teaching:
-//            teachingPage.changeColorViewToColor(direction: direction)
-            teachingPage.fadeAndRemove(time: 1.5, completion: {
-                self.loadPlayPage()
-            })
+            openingPage.handleSwipe(direction)
+
+        case .tutorial:
+//            teachingPage.fadeAndRemove(time: 1.5, completion: {
+//                self.loadPlayPage()
+//            })
+            tutorialPage.handleSwipe(direction)
+            print("swipe in tutorial")
         case .playing:
             Logic.shared.checkSwipeForGame(direction)
         case .gameOver:
@@ -149,8 +161,8 @@ class ViewController: UIViewController, CallbackDelegate, GameDelegate, TitleDel
     }
 
     @objc func handlePlayButtonPressed(sender: UIButton){
-        homePage.fadeAndRemove(time: 1.0)
-        loadPlayPage()
+        openingPage.fadeAndRemove(time: 1.0)
+        loadTutorialPage()
     }
     
     @objc func handleRestartTap(_ sender: UIButton){
@@ -161,6 +173,6 @@ class ViewController: UIViewController, CallbackDelegate, GameDelegate, TitleDel
     func animateTitle(_ sequencerPosition: Double){
 //        print("sequencer position: \(sequencerPosition)")
         let sequencerInt = Int(sequencerPosition.rounded())
-        teachingPage.titleView.animateTitle(sequencerPosition: sequencerInt)
+        openingPage.titleView.animateTitle(sequencerPosition: sequencerInt)
     }
 }
