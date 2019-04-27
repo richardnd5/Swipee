@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		0914824E52932FD970CFEDA4 /* Pods_Swipee.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98527F8D47E55E893E4E0E9A /* Pods_Swipee.framework */; };
+		220944A922691F9100B18D3F /* playButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 220944A822691F9100B18D3F /* playButton.png */; };
+		220944AB2269220500B18D3F /* CheckMarkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220944AA2269220500B18D3F /* CheckMarkView.swift */; };
+		220944AD2269220A00B18D3F /* QCMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220944AC2269220A00B18D3F /* QCMethod.swift */; };
 		224BBA282252BC7900DF9662 /* restartButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 224BBA272252BC7900DF9662 /* restartButton.png */; };
 		224BBA2A2253F94300DF9662 /* gameOverSound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 224BBA292253F94300DF9662 /* gameOverSound.mp3 */; };
 		224BBA2C2253F94E00DF9662 /* SoundEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224BBA2B2253F94D00DF9662 /* SoundEffect.swift */; };
@@ -17,7 +20,7 @@
 		226F5BD42266511700139B9E /* leftArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 226F5BD02266511700139B9E /* leftArrow.png */; };
 		226F5BD52266511700139B9E /* downArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 226F5BD12266511700139B9E /* downArrow.png */; };
 		226F5BD62266511700139B9E /* rightArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 226F5BD22266511700139B9E /* rightArrow.png */; };
-		226F5BD8226651DA00139B9E /* ImageViewClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226F5BD7226651DA00139B9E /* ImageViewClass.swift */; };
+		226F5BD8226651DA00139B9E /* ArrowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226F5BD7226651DA00139B9E /* ArrowView.swift */; };
 		2296E74A22519D9C000C05BF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2296E74922519D9C000C05BF /* AppDelegate.swift */; };
 		2296E74C22519D9C000C05BF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2296E74B22519D9C000C05BF /* ViewController.swift */; };
 		2296E75122519D9D000C05BF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2296E75022519D9D000C05BF /* Assets.xcassets */; };
@@ -33,7 +36,6 @@
 		2296E78822527C58000C05BF /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2296E78622527C58000C05BF /* Button.swift */; };
 		2296E78922527C58000C05BF /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2296E78722527C58000C05BF /* UIViewExtension.swift */; };
 		2296E78C22527C5D000C05BF /* backButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 2296E78A22527C5D000C05BF /* backButton.png */; };
-		2296E78D22527C5D000C05BF /* playButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 2296E78B22527C5D000C05BF /* playButton.png */; };
 		2296E78F22527C6E000C05BF /* HomePageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2296E78E22527C6E000C05BF /* HomePageView.swift */; };
 		2296E79122527C82000C05BF /* PlayPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2296E79022527C82000C05BF /* PlayPageView.swift */; };
 		2296E79322527D69000C05BF /* AutoLayoutExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2296E79222527D69000C05BF /* AutoLayoutExtension.swift */; };
@@ -41,6 +43,7 @@
 		229ECE1C2256EF8800C20E43 /* OpeningPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229ECE1B2256EF8800C20E43 /* OpeningPageView.swift */; };
 		229ECE1E2256F2C700C20E43 /* ColorViewWithDirection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229ECE1D2256F2C700C20E43 /* ColorViewWithDirection.swift */; };
 		22C07CE822614A6A00268A19 /* PositionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C07CE722614A6A00268A19 /* PositionView.swift */; };
+		22EA82672266A3A400D10A3E /* PositionStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22EA82662266A3A400D10A3E /* PositionStackView.swift */; };
 		22FDADF9225705EA004C6191 /* ColorfulTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FDADF8225705EA004C6191 /* ColorfulTitleView.swift */; };
 		34117CA50AB08A7354281C41 /* Pods_SwipeeUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFCC0348A6EA036A5BB2A94F /* Pods_SwipeeUITests.framework */; };
 		68FBBBC14A021774C1405C55 /* Pods_SwipeeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81C70362FDE4A482120D1871 /* Pods_SwipeeTests.framework */; };
@@ -65,6 +68,9 @@
 
 /* Begin PBXFileReference section */
 		1BE4522AF903F2379D37F9DA /* Pods-SwipeeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwipeeTests.release.xcconfig"; path = "Target Support Files/Pods-SwipeeTests/Pods-SwipeeTests.release.xcconfig"; sourceTree = "<group>"; };
+		220944A822691F9100B18D3F /* playButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = playButton.png; sourceTree = "<group>"; };
+		220944AA2269220500B18D3F /* CheckMarkView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckMarkView.swift; sourceTree = "<group>"; };
+		220944AC2269220A00B18D3F /* QCMethod.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QCMethod.swift; sourceTree = "<group>"; };
 		224BBA272252BC7900DF9662 /* restartButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = restartButton.png; sourceTree = "<group>"; };
 		224BBA292253F94300DF9662 /* gameOverSound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = gameOverSound.mp3; sourceTree = "<group>"; };
 		224BBA2B2253F94D00DF9662 /* SoundEffect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundEffect.swift; sourceTree = "<group>"; };
@@ -74,7 +80,7 @@
 		226F5BD02266511700139B9E /* leftArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = leftArrow.png; sourceTree = "<group>"; };
 		226F5BD12266511700139B9E /* downArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = downArrow.png; sourceTree = "<group>"; };
 		226F5BD22266511700139B9E /* rightArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rightArrow.png; sourceTree = "<group>"; };
-		226F5BD7226651DA00139B9E /* ImageViewClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewClass.swift; sourceTree = "<group>"; };
+		226F5BD7226651DA00139B9E /* ArrowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrowView.swift; sourceTree = "<group>"; };
 		2296E74622519D9C000C05BF /* Swipee.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Swipee.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2296E74922519D9C000C05BF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2296E74B22519D9C000C05BF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -96,7 +102,6 @@
 		2296E78622527C58000C05BF /* Button.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
 		2296E78722527C58000C05BF /* UIViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		2296E78A22527C5D000C05BF /* backButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backButton.png; sourceTree = "<group>"; };
-		2296E78B22527C5D000C05BF /* playButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = playButton.png; sourceTree = "<group>"; };
 		2296E78E22527C6E000C05BF /* HomePageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageView.swift; sourceTree = "<group>"; };
 		2296E79022527C82000C05BF /* PlayPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayPageView.swift; sourceTree = "<group>"; };
 		2296E79222527D69000C05BF /* AutoLayoutExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoLayoutExtension.swift; sourceTree = "<group>"; };
@@ -104,6 +109,7 @@
 		229ECE1B2256EF8800C20E43 /* OpeningPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpeningPageView.swift; sourceTree = "<group>"; };
 		229ECE1D2256F2C700C20E43 /* ColorViewWithDirection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorViewWithDirection.swift; sourceTree = "<group>"; };
 		22C07CE722614A6A00268A19 /* PositionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositionView.swift; sourceTree = "<group>"; };
+		22EA82662266A3A400D10A3E /* PositionStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositionStackView.swift; sourceTree = "<group>"; };
 		22FDADF8225705EA004C6191 /* ColorfulTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorfulTitleView.swift; sourceTree = "<group>"; };
 		34925BC3CA647BE89751F7F3 /* Pods-SwipeeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwipeeTests.debug.xcconfig"; path = "Target Support Files/Pods-SwipeeTests/Pods-SwipeeTests.debug.xcconfig"; sourceTree = "<group>"; };
 		4229B296CCBDBF8102E48CE0 /* Pods-Swipee.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Swipee.release.xcconfig"; path = "Target Support Files/Pods-Swipee/Pods-Swipee.release.xcconfig"; sourceTree = "<group>"; };
@@ -162,6 +168,11 @@
 			children = (
 				226F5BCB22659B5B00139B9E /* TutorialPageView.swift */,
 				226F5BCD22659FBF00139B9E /* BorderView.swift */,
+				226F5BD7226651DA00139B9E /* ArrowView.swift */,
+				22EA82662266A3A400D10A3E /* PositionStackView.swift */,
+				22C07CE722614A6A00268A19 /* PositionView.swift */,
+				220944AA2269220500B18D3F /* CheckMarkView.swift */,
+				220944AC2269220A00B18D3F /* QCMethod.swift */,
 			);
 			path = "Tutorial Page";
 			sourceTree = "<group>";
@@ -198,7 +209,6 @@
 				226F5BD9226653C700139B9E /* Tutorial Page */,
 				22FDADF8225705EA004C6191 /* ColorfulTitleView.swift */,
 				229ECE1D2256F2C700C20E43 /* ColorViewWithDirection.swift */,
-				226F5BD7226651DA00139B9E /* ImageViewClass.swift */,
 				22C07CE922614BAE00268A19 /* Play Page */,
 				2296E7842252687D000C05BF /* Logic.swift */,
 				2296E77E2251A315000C05BF /* Sound.swift */,
@@ -251,8 +261,8 @@
 			isa = PBXGroup;
 			children = (
 				2296E78A22527C5D000C05BF /* backButton.png */,
-				2296E78B22527C5D000C05BF /* playButton.png */,
 				224BBA272252BC7900DF9662 /* restartButton.png */,
+				220944A822691F9100B18D3F /* playButton.png */,
 				226F5BD12266511700139B9E /* downArrow.png */,
 				226F5BD02266511700139B9E /* leftArrow.png */,
 				226F5BD22266511700139B9E /* rightArrow.png */,
@@ -274,7 +284,6 @@
 			isa = PBXGroup;
 			children = (
 				2296E79022527C82000C05BF /* PlayPageView.swift */,
-				22C07CE722614A6A00268A19 /* PositionView.swift */,
 			);
 			path = "Play Page";
 			sourceTree = "<group>";
@@ -395,7 +404,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2296E7832251A385000C05BF /* Sampler in Resources */,
-				2296E78D22527C5D000C05BF /* playButton.png in Resources */,
+				220944A922691F9100B18D3F /* playButton.png in Resources */,
 				2296E75422519D9D000C05BF /* LaunchScreen.storyboard in Resources */,
 				226F5BD52266511700139B9E /* downArrow.png in Resources */,
 				224BBA282252BC7900DF9662 /* restartButton.png in Resources */,
@@ -498,6 +507,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				22EA82672266A3A400D10A3E /* PositionStackView.swift in Sources */,
 				2296E79322527D69000C05BF /* AutoLayoutExtension.swift in Sources */,
 				2296E78822527C58000C05BF /* Button.swift in Sources */,
 				224BBA2C2253F94E00DF9662 /* SoundEffect.swift in Sources */,
@@ -513,7 +523,9 @@
 				2296E74C22519D9C000C05BF /* ViewController.swift in Sources */,
 				229ECE1E2256F2C700C20E43 /* ColorViewWithDirection.swift in Sources */,
 				2296E74A22519D9C000C05BF /* AppDelegate.swift in Sources */,
-				226F5BD8226651DA00139B9E /* ImageViewClass.swift in Sources */,
+				226F5BD8226651DA00139B9E /* ArrowView.swift in Sources */,
+				220944AB2269220500B18D3F /* CheckMarkView.swift in Sources */,
+				220944AD2269220A00B18D3F /* QCMethod.swift in Sources */,
 				2296E7812251A326000C05BF /* SoundSampler.swift in Sources */,
 				2296E7852252687D000C05BF /* Logic.swift in Sources */,
 				2296E78922527C58000C05BF /* UIViewExtension.swift in Sources */,

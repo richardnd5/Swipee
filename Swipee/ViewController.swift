@@ -11,6 +11,7 @@ protocol GameDelegate : class {
     func scorePoint()
     func gameOver()
     func changeGuessColor()
+    func loadPlayPage()
 }
 
 protocol TitleDelegate : class {
@@ -41,6 +42,7 @@ class ViewController: UIViewController, CallbackDelegate, GameDelegate, TitleDel
         Sound.shared.delegate = self
         Logic.shared.delegate = self
         Sound.shared.titleDelegate = self
+//        loadPlayPage()
     }
     
     // MARK - UISetup
@@ -76,6 +78,7 @@ class ViewController: UIViewController, CallbackDelegate, GameDelegate, TitleDel
         
         gameState = .tutorial
         tutorialPage = TutorialPageView()
+        tutorialPage.delegate = self
         view.addSubview(tutorialPage)
         tutorialPage.fillSuperview()
     }
@@ -148,11 +151,7 @@ class ViewController: UIViewController, CallbackDelegate, GameDelegate, TitleDel
             openingPage.handleSwipe(direction)
 
         case .tutorial:
-//            teachingPage.fadeAndRemove(time: 1.5, completion: {
-//                self.loadPlayPage()
-//            })
             tutorialPage.handleSwipe(direction)
-            print("swipe in tutorial")
         case .playing:
             Logic.shared.checkSwipeForGame(direction)
         case .gameOver:

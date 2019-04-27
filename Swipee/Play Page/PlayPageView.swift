@@ -100,7 +100,7 @@ class PlayPageView: UIView {
     
     private func setupViewContraints(){
         let safe = safeAreaLayoutGuide
-        let viewSize : CGFloat = 10
+        let viewSize : CGFloat = 20
 
         topView.translatesAutoresizingMaskIntoConstraints = false
         topView.topAnchor.constraint(equalTo: safe.topAnchor).isActive = true

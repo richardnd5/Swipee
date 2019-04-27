@@ -103,7 +103,7 @@ class OpeningPageView: UIView {
         playButton.translatesAutoresizingMaskIntoConstraints = false
         playButton.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
         playButton.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
-        playButton.widthAnchor.constraint(equalToConstant: ScreenSize.width/1.5).isActive = true
+        playButton.widthAnchor.constraint(equalToConstant: ScreenSize.width/3).isActive = true
         playButton.widthAnchor.constraint(equalTo: playButton.heightAnchor, multiplier: 1).isActive = true
         
         
@@ -210,10 +210,8 @@ class OpeningPageView: UIView {
     }
     
     func handleSwipe(_ direction: UISwipeGestureRecognizer.Direction){
-        if direction == .up {
-            print("it's up")
             moveTitleUp()
-        }
+        
     }
     
     required init?(coder aDecoder: NSCoder) {

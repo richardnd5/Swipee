@@ -15,18 +15,65 @@ class BorderView: UIView {
     
     var borderWidth : CGFloat = 20
     
+    var arrow : ArrowView!
+    
+    var arrowTop : NSLayoutConstraint!
+    var arrowLeading : NSLayoutConstraint!
+    var arrowTrailing : NSLayoutConstraint!
+    var arrowBottom : NSLayoutConstraint!
+    var arrowWidth: NSLayoutConstraint!
+    var arrowHeight : NSLayoutConstraint!
+    
     
     init(frame: CGRect, direction: UISwipeGestureRecognizer.Direction) {
         super.init(frame: frame)
         setColorBasedOnDirection(direction)
         self.direction = direction
         
-//        scaleTo(scaleTo: 0.0, time: 0.0)
-        translatesAutoresizingMaskIntoConstraints = false
+        scaleTo(scaleTo: 0.0, time:  0.0)
         
+        translatesAutoresizingMaskIntoConstraints = false
         layer.cornerRadius = borderWidth/4
         
-
+        setupArrow()
+    }
+    
+    func setupArrow(){
+        
+        let arrowImageName = getArrowString(from: direction)
+        arrow = ArrowView(frame: .zero, arrowImageName)
+        addSubview(arrow)
+        arrow.scaleTo(scaleTo: 0.0, time: 0.0)
+        
+        arrow.translatesAutoresizingMaskIntoConstraints = false
+        arrow.topAnchor.constraint(equalTo: topAnchor, constant: 30).isActive = true
+        arrow.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 30).isActive = true
+        arrow.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -30).isActive = true
+        arrow.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -30).isActive = true
+        
+    }
+    
+    func getArrowString(from direction: UISwipeGestureRecognizer.Direction)-> String {
+        switch direction {
+        case .up:
+            return "upArrow"
+        case .left:
+            return "leftArrow"
+        case .right:
+            return "rightArrow"
+        case .down:
+            return "downArrow"
+        default:
+            return "upArrow"
+        }
+    }
+    
+    func showArrow(){
+        arrow.scaleTo(scaleTo: 1.0, time: 1.0)
+    }
+    
+    func hideArrow(){
+        arrow.scaleTo(scaleTo: 0.0, time: 1.0)
     }
     
     func setColorBasedOnDirection(_ direction: UISwipeGestureRecognizer.Direction){
@@ -57,7 +104,36 @@ class BorderView: UIView {
         height.isActive = true
     }
     
-    func setViewToBorder(){
+    func setArrowLayout(){
+        arrow.translatesAutoresizingMaskIntoConstraints = false
+        
+        
+        arrowTop  = topAnchor.constraint(equalTo: topAnchor, constant: 30)
+        arrowLeading = leadingAnchor.constraint(equalTo: leadingAnchor, constant: 30)
+        arrowTrailing = trailingAnchor.constraint(equalTo: trailingAnchor, constant: -30)
+        arrowBottom = bottomAnchor.constraint(equalTo: bottomAnchor, constant: -30)
+        arrowWidth = widthAnchor.constraint(equalToConstant: 0)
+        arrowHeight = heightAnchor.constraint(equalToConstant: 0)
+        
+        arrowTop.isActive = true
+        arrowLeading.isActive = true
+        arrowTrailing.isActive = true
+        arrowBottom.isActive = true
+        arrowWidth.isActive = false
+        arrowHeight.isActive = false
+
+    }
+    
+    func shrinkArrowMoveViewToBorder(_ completion: @escaping () -> () = {}){
+        arrow.shrinkAndRemove(time: 0.3){
+            self.setViewToBorder(){
+                completion()
+            }
+        }
+    }
+    
+    func setViewToBorder(_ completion: @escaping () -> () = {}){
+        
         
         let dir = direction!
         let safe = superview!.safeAreaLayoutGuide
@@ -96,10 +172,13 @@ class BorderView: UIView {
         leading.isActive = true
         trailing.isActive = true
         bottom.isActive = true
-        
-        UIView.animate(withDuration: 1.0, delay: 0.0, options: .curveEaseInOut, animations: {
+
+        UIView.animate(withDuration: 0.6, delay: 0.0, options: .curveEaseInOut, animations: {
             self.superview?.layoutIfNeeded()
-        }, completion: nil)
+        }, completion: {_ in
+            completion()
+        }
+        )
     }
     
     func springIn(){
