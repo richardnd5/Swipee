@@ -15,83 +15,6 @@
 import UIKit
 import AudioKit
 
-enum ColorCellDirection {
-    case up
-    case down
-    case left
-    case right
-    case none
-}
-
-struct ColorCell {
-    var direction: ColorCellDirection!
-    var position : Int!
-    var color: UIColor!
-    var sequencerTimeWindow : ClosedRange<Double>!
-    
-    var timeBuffer : Double = 0.35
-    
-    var rangeBeforeBeat : Range<Double>!
-    var rangeAfterBeat : ClosedRange<Double>!
-    
-    init(direction: ColorCellDirection, position: Int){
-        self.position = position
-        self.direction = direction
-        color = directionToColor(direction)
-        calculateTimeWindow(position)
-        
-    }
-    
-    mutating func calculateTimeWindow(_ position: Int){
-        
-        let sequencerPosition = Double(position)/2
-        
-        var lowerBoundBeforeBeat = Double()
-        var upperBoundBeforeBeat = Double()
-        
-        var lowerBoundAfterBeat = Double()
-        var upperBoundAfterBeat = Double()
-        
-        
-        if sequencerPosition == 0 {
-            
-            lowerBoundBeforeBeat = 4-timeBuffer
-            upperBoundBeforeBeat = 4
-            
-            lowerBoundAfterBeat = sequencerPosition
-            upperBoundAfterBeat = sequencerPosition+timeBuffer
-            
-        } else {
-            
-            lowerBoundBeforeBeat = sequencerPosition-timeBuffer
-            upperBoundBeforeBeat = sequencerPosition
-            
-            lowerBoundAfterBeat = sequencerPosition
-            upperBoundAfterBeat = sequencerPosition+timeBuffer
-        }
-        
-        rangeBeforeBeat = lowerBoundBeforeBeat..<upperBoundBeforeBeat
-        rangeAfterBeat = lowerBoundAfterBeat...upperBoundAfterBeat
-
-        
-    }
-    
-    func directionToColor(_ direction: ColorCellDirection) -> UIColor {
-        switch direction {
-        case ColorCellDirection.up:
-            return .yellow
-        case ColorCellDirection.left:
-            return .red
-        case ColorCellDirection.right:
-            return .green
-        case ColorCellDirection.down:
-            return .purple
-        case ColorCellDirection.none:
-            return .clear
-        }
-    }
-}
-
 class Logic {
     
     weak var delegate : GameDelegate!
@@ -100,42 +23,14 @@ class Logic {
     var timeRange : ClosedRange<Double>!
     var score = 0
     var highScore = 0
-    var guessSubmitted = false
+    var guessSubmitted = true
     
-    
-    var arrayOfDirections : Array<UISwipeGestureRecognizer.Direction>!
-    var arrayOfCells = [ColorCell]()
 
     init() {
-        timeRange = 1.5...3.1
+        timeRange = 0.0...4.0
         loadHighScore()
-        fillArrayOfDirections()
     }
-    
-    func fillArrayOfDirections(){
-        
-        
-        for i in 0...8 {
-            let rand = Int.random(in: 0...4)
-            switch rand {
-            case 0:
-                arrayOfCells.append(ColorCell(direction: ColorCellDirection.up, position: i))
-            case 1:
-                arrayOfCells.append(ColorCell(direction: ColorCellDirection.down, position: i))
-            case 2:
-                arrayOfCells.append(ColorCell(direction: ColorCellDirection.left, position: i))
-            case 3:
-                arrayOfCells.append(ColorCell(direction: ColorCellDirection.right, position: i))
-            default:
-                arrayOfCells.append(ColorCell(direction: ColorCellDirection.none, position: i))
-                
-            }
-            print(arrayOfCells)
-            for cell in arrayOfCells {
-                print(cell.rangeBeforeBeat, cell.rangeAfterBeat)
-            }
-        }
-    }
+
     
     func setNewNoteToGuess(){
         guessDirection = generateRandomSwipeDirection()
@@ -224,7 +119,6 @@ class Logic {
     func sequencerBeatDelegator(_ position: Double){
         
         delegate.UIActionOnSequencerPosition(position)
-        print(position)
 
         if Sound.shared.sequencer.tempo > 100 {
             let rounded = (position*10).rounded()/10
@@ -236,13 +130,16 @@ class Logic {
             Haptics.shared.vibrate()
         }
         
-        if (0.0...1.0).contains(position) {
+        if (0.0...0.1).contains(position) {
+            if Logic.shared.guessSubmitted == false && score != 0 {
+                delegate.gameOver()
+            }
             Logic.shared.guessSubmitted = false
             delegate.changeGuessColor()
         }
         
-        if (3.0...4.0).contains(position) && !Logic.shared.guessSubmitted {
-            delegate.gameOver()
+        if (1.5...2.0).contains(position) && !Logic.shared.guessSubmitted {
+            
         }
         
     }

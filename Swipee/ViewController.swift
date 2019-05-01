@@ -3,7 +3,6 @@ import UIKit
 protocol CallbackDelegate : class {
     func accompTrackNoteOnCallback(_ sequencerPosition: Double)
     func accompTrackNoteOffCallback()
-    func shrinkColorView()
 }
 
 protocol GameDelegate : class {
@@ -19,7 +18,7 @@ protocol TitleDelegate : class {
 }
 
 class ViewController: UIViewController, CallbackDelegate, GameDelegate, TitleDelegate {
-    
+
     var homePage : HomePageView!
     var playPage : PlayPageView!
     var openingPage : OpeningPageView!
@@ -119,26 +118,17 @@ class ViewController: UIViewController, CallbackDelegate, GameDelegate, TitleDel
     }
     
     func accompTrackNoteOffCallback(){
-        shrinkColorView()
     }
     
     // MARK - Dynamic UI Functions
-    func expandColorView(){
-        self.playPage.colorView.scaleTo(scaleTo: 1.05, time: 0.3)
-    }
-    
-    func shrinkColorView() {
-        self.playPage.colorView.scaleTo(scaleTo: 1.0, time: 0.4)
-    }
-    
     func changeGuessColor(){
         playPage.changeColorViewToColor(direction: Logic.shared.guessDirection)
-        playPage.changeCorrectSlot(direction: Logic.shared.guessDirection)
+//        playPage.changeCorrectSlot(direction: Logic.shared.guessDirection)
     }
     
     func UIActionOnSequencerPosition(_ sequencerPosition: Double){
         playPage.scaleUpAndDownSlotPosition(position: sequencerPosition)
-        expandColorView()
+        playPage.shrinkColorView(seqPos: sequencerPosition)
     }
     
     // MARK - Gestures
@@ -160,8 +150,10 @@ class ViewController: UIViewController, CallbackDelegate, GameDelegate, TitleDel
     }
 
     @objc func handlePlayButtonPressed(sender: UIButton){
-        openingPage.fadeAndRemove(time: 1.0)
-        loadTutorialPage()
+        openingPage.fadeAndRemove(time: 1.0){
+            self.loadTutorialPage()
+        }
+        
     }
     
     @objc func handleRestartTap(_ sender: UIButton){

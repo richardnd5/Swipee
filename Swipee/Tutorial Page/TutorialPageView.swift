@@ -45,8 +45,6 @@ class TutorialPageView: UIView {
         setupStackView()
         setBorderViewsInCenter()
         
-
-        
         checkMarkView.translatesAutoresizingMaskIntoConstraints = false
         checkMarkView.widthAnchor.constraint(equalToConstant: ScreenSize.width/4).isActive = true
         checkMarkView.widthAnchor.constraint(equalTo: checkMarkView.heightAnchor, multiplier: 1).isActive = true
@@ -137,12 +135,12 @@ class TutorialPageView: UIView {
                     rightView.shrinkArrowMoveViewToBorder(){
 //                    self.positionStackView.animateViewEntrance()
                     self.fadeAndRemove(time: 1.0)
+                    self.delegate!.loadPlayPage()
                 }
             } else {
                 warningWiggle()
                 checkMarkView.addDrawXMarkAnimation(totalDuration: 0.7)
             }
-            delegate!.loadPlayPage()
 
         default:
             break

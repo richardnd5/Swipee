@@ -75,12 +75,12 @@ class Sound {
         accompTrack = sequencer.newTrack()
         callTrack = sequencer.newTrack()
         
-        for i in 0..<8 {
+        for i in 0..<4 {
             accompTrack.add(midiNoteData: AKMIDINoteData(noteNumber: MIDINoteNumber.random(in: 60...63), velocity: MIDIVelocity.random(in: 0...127), channel: 1, duration: AKDuration(beats: 0.3), position: AKDuration(beats: Double(i)/2)))
         }
 
         sequencer.setTempo(startingTempo)
-        sequencer.setLength(AKDuration(beats: 4))
+        sequencer.setLength(AKDuration(beats: 2))
         sequencer.enableLooping()
         
         accompTrack.setMIDIOutput(accompCallback.midiIn)
@@ -165,7 +165,7 @@ class Sound {
         }
     }
     
-    func incrementSequencerTempo(_ amount: Double = 6){
+    func incrementSequencerTempo(_ amount: Double = 3){
         let newTempo = sequencer.tempo+amount
         sequencer.setTempo(newTempo)
     }
