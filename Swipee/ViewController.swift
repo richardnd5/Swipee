@@ -36,12 +36,12 @@ class ViewController: UIViewController, CallbackDelegate, GameDelegate, TitleDel
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor(white: 0.7, alpha: 1.0)
-        loadTeachingPage()
+//        loadTeachingPage()
         setupSwipeGestures()
         Sound.shared.delegate = self
         Logic.shared.delegate = self
         Sound.shared.titleDelegate = self
-//        loadPlayPage()
+        loadPlayPage()
     }
     
     // MARK - UISetup
@@ -128,7 +128,14 @@ class ViewController: UIViewController, CallbackDelegate, GameDelegate, TitleDel
     
     func UIActionOnSequencerPosition(_ sequencerPosition: Double){
         playPage.scaleUpAndDownSlotPosition(position: sequencerPosition)
-        playPage.shrinkColorView(seqPos: sequencerPosition)
+//        playPage.shrinkColorView(seqPos: sequencerPosition)
+        let rounded = (sequencerPosition*10).rounded()/10
+
+        if rounded == 0.0 {
+            let seqLength = Sound.shared.sequencer.length.beats
+            let seqTempo = Sound.shared.sequencer.tempo
+            playPage.startShrinkingView(seqLength: seqLength, seqTempo: seqTempo)
+        }
     }
     
     // MARK - Gestures

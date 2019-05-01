@@ -171,6 +171,8 @@ class PlayPageView: UIView {
         
         Logic.shared.startGame()
         colorView.fadeTo(opacity: 1.0, time: 0.3)
+        colorView.scaleTo(scaleTo: 1.0, time: 0.3)
+
         
         let animationTime = 0.7
         
@@ -228,6 +230,15 @@ class PlayPageView: UIView {
         default:
             break
         }
+    }
+    
+    func startShrinkingView(seqLength: Double, seqTempo: Double){
+        colorView.scaleTo(scaleTo: 1.0, time: 0.0)
+        let timePerSecond = 60/seqTempo
+        let timeMultipliedBySeqLength = timePerSecond*2
+        print(timePerSecond)
+        colorView.scaleTo(scaleTo: 0.0000000001, time: timeMultipliedBySeqLength, isSpringy: false)
+        
     }
     
     override func layoutSubviews() {
