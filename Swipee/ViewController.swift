@@ -2,7 +2,6 @@ import UIKit
 
 protocol CallbackDelegate : class {
     func accompTrackNoteOnCallback(_ sequencerPosition: Double)
-    func accompTrackNoteOffCallback()
 }
 
 protocol GameDelegate : class {
@@ -13,54 +12,29 @@ protocol GameDelegate : class {
     func loadPlayPage()
 }
 
-protocol TitleDelegate : class {
-    func animateTitle(_ sequencerPosition: Double)
-}
+class ViewController: UIViewController, CallbackDelegate, GameDelegate {
 
-class ViewController: UIViewController, CallbackDelegate, GameDelegate, TitleDelegate {
-
-    var homePage : HomePageView!
     var playPage : PlayPageView!
     var openingPage : OpeningPageView!
     var tutorialPage : TutorialPageView!
     
-    enum GameState {
-        case opening
-        case tutorial
-        case playing
-        case gameOver
-    }
-    
-    var gameState = GameState.opening
+    var gameState = AppState.opening
 
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor(white: 0.7, alpha: 1.0)
-//        loadTeachingPage()
+        loadOpeningPage()
         setupSwipeGestures()
         Sound.shared.delegate = self
         Logic.shared.delegate = self
-        Sound.shared.titleDelegate = self
-        loadPlayPage()
     }
     
-    // MARK - UISetup
-    func loadTeachingPage(){
+    func loadOpeningPage(){
         openingPage = OpeningPageView()
         view.addSubview(openingPage)
         openingPage.fillSuperview()
         
         openingPage.playButton.addTarget(self, action: #selector(handlePlayButtonPressed), for: .touchUpInside)
-    }
-    
-    func loadHomePage(){
-        
-        homePage = HomePageView()
-        view.addSubview(homePage)
-        homePage.fillSuperview()
-        
-        homePage.playButton.addTarget(self, action: #selector(handlePlayButtonPressed), for: .touchUpInside)
-
     }
     
     func loadPlayPage(){
@@ -104,6 +78,7 @@ class ViewController: UIViewController, CallbackDelegate, GameDelegate, TitleDel
     
     func scorePoint(){
         playPage.updateLabels()
+        playPage.checkMarkView.addDrawCheckMarkAnimation()
         Logic.shared.setNewNoteToGuess()
         Sound.shared.incrementSequencerTempo()
     }
@@ -117,24 +92,28 @@ class ViewController: UIViewController, CallbackDelegate, GameDelegate, TitleDel
         Logic.shared.sequencerBeatDelegator(sequencerPosition)
     }
     
-    func accompTrackNoteOffCallback(){
-    }
-    
+
     // MARK - Dynamic UI Functions
     func changeGuessColor(){
         playPage.changeColorViewToColor(direction: Logic.shared.guessDirection)
-//        playPage.changeCorrectSlot(direction: Logic.shared.guessDirection)
     }
     
     func UIActionOnSequencerPosition(_ sequencerPosition: Double){
-        playPage.scaleUpAndDownSlotPosition(position: sequencerPosition)
-//        playPage.shrinkColorView(seqPos: sequencerPosition)
+
+
         let rounded = (sequencerPosition*10).rounded()/10
 
         if rounded == 0.0 {
             let seqLength = Sound.shared.sequencer.length.beats
             let seqTempo = Sound.shared.sequencer.tempo
-            playPage.startShrinkingView(seqLength: seqLength, seqTempo: seqTempo)
+            
+            if Logic.shared.guessSubmitted {
+                playPage.colorView.scaleBackUp()
+            } else if !Logic.shared.guessSubmitted && Logic.shared.score == 0{
+                playPage.colorView.scaleBackUp()
+            }
+            
+            playPage.colorView.startShrink(seqLength: seqLength, seqTempo: seqTempo)
         }
     }
     
@@ -145,8 +124,7 @@ class ViewController: UIViewController, CallbackDelegate, GameDelegate, TitleDel
         
         switch gameState {
         case .opening:
-            openingPage.handleSwipe(direction)
-
+            return
         case .tutorial:
             tutorialPage.handleSwipe(direction)
         case .playing:
@@ -157,20 +135,13 @@ class ViewController: UIViewController, CallbackDelegate, GameDelegate, TitleDel
     }
 
     @objc func handlePlayButtonPressed(sender: UIButton){
-        openingPage.fadeAndRemove(time: 1.0){
+        openingPage.fadeAndRemove(time: 0.6){
             self.loadTutorialPage()
         }
-        
     }
     
     @objc func handleRestartTap(_ sender: UIButton){
         gameState = .playing
         playPage.restartGame()
-    }
-    
-    func animateTitle(_ sequencerPosition: Double){
-//        print("sequencer position: \(sequencerPosition)")
-        let sequencerInt = Int(sequencerPosition.rounded())
-        openingPage.titleView.animateTitle(sequencerPosition: sequencerInt)
     }
 }

@@ -7,3 +7,9 @@ enum SoundDirection : MIDINoteNumber {
     case down
 }
 
+enum AppState {
+    case opening
+    case tutorial
+    case playing
+    case gameOver
+}

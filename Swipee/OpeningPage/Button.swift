@@ -31,14 +31,17 @@ class Button: UIButton {
         addTarget(self, action: #selector(touchDown), for: .touchDown)
         addTarget(self, action: #selector(touchUpInside), for: .touchUpInside)
         addTarget(self, action: #selector(touchUpOutside), for: .touchUpOutside)
+        addTarget(self, action: #selector(touchUpOutside), for: .touchDragExit)
     }
     
     func fadeIn(_ time: Double = 1){
         fadeTo(opacity: 1.0, time: time)
     }
     
-    func fadeOut(_ time: Double = 1){
-        fadeTo(opacity: 0.0, time: time)
+    func fadeOut(_ time: Double = 0.5, _ completion: @escaping () -> () = {}){
+        fadeTo(opacity: 0.0, time: time){
+            completion()
+        }
     }
     
     // button touch events

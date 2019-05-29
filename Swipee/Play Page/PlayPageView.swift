@@ -9,23 +9,36 @@ class PlayPageView: UIView {
     var restartButton : Button!
     var scoreLabel = UILabel()
     var highScoreLabel = UILabel()
-    var colorView = UIView()
-    var positionStackView = UIStackView()
+    var colorView : ColorView!
+    var borderWidth : CGFloat = 20
+    
+    var checkMarkView: CheckMarkView!
+
+    
+
+
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupViews()
-
+        
         Logic.shared.loadHighScore()
         updateLabels()
     }
     
     func setupViews(){
         
+        colorView = ColorView(frame: .zero, color: .clear)
+        
         topView.backgroundColor = .yellow
         leftView.backgroundColor = .red
         rightView.backgroundColor = .green
         bottomView.backgroundColor = .purple
+        
+        topView.layer.cornerRadius = borderWidth/4
+        leftView.layer.cornerRadius = borderWidth/4
+        rightView.layer.cornerRadius = borderWidth/4
+        bottomView.layer.cornerRadius = borderWidth/4
         
         addSubview(topView)
         addSubview(leftView)
@@ -37,8 +50,6 @@ class PlayPageView: UIView {
         setupScoreLabel()
         setupHighSCoreLabel()
         setupRestartButton()
-        setupStackView()
-        
         setupViewContraints()
         
         alpha = 0.0
@@ -47,19 +58,6 @@ class PlayPageView: UIView {
         })
     }
     
-    private func setupStackView(){
-        positionStackView = UIStackView()
-        positionStackView.axis = .horizontal
-        positionStackView.distribution = .equalSpacing
-        addSubview(positionStackView)
-        
-        for i in 0..<4 {
-            
-            let view = PositionView(frame: .zero, sequencerPosition: Double(i)/2)
-            positionStackView.addArrangedSubview(view)
-        }
-    }
-
     private func setupScoreLabel(){
         scoreLabel.text = "Score: \(Logic.shared.score)"
         scoreLabel.sizeToFit()
@@ -81,6 +79,7 @@ class PlayPageView: UIView {
         addSubview(restartButton)
         restartButton.alpha = 0.0
         
+        
     }
     
     private func setupRestartButtonContraints(){
@@ -91,98 +90,115 @@ class PlayPageView: UIView {
         restartButton.widthAnchor.constraint(equalTo: restartButton.heightAnchor, multiplier: 1).isActive = true
     }
     
-    private func setupPositionCircleConstraints(){
-        for view in positionStackView.arrangedSubviews {
-            let v = view as! PositionView
-            v.setCircleBorder()
-        }
-    }
-    
     private func setupViewContraints(){
         let safe = safeAreaLayoutGuide
-        let viewSize : CGFloat = 20
-
+        
         topView.translatesAutoresizingMaskIntoConstraints = false
-        topView.topAnchor.constraint(equalTo: safe.topAnchor).isActive = true
-        topView.leadingAnchor.constraint(equalTo: safe.leadingAnchor).isActive = true
-        topView.trailingAnchor.constraint(equalTo: safe.trailingAnchor).isActive = true
-        topView.heightAnchor.constraint(equalToConstant: viewSize).isActive = true
-        
         bottomView.translatesAutoresizingMaskIntoConstraints = false
-        bottomView.bottomAnchor.constraint(equalTo: safe.bottomAnchor).isActive = true
-        bottomView.leadingAnchor.constraint(equalTo: safe.leadingAnchor).isActive = true
-        bottomView.trailingAnchor.constraint(equalTo: safe.trailingAnchor).isActive = true
-        bottomView.heightAnchor.constraint(equalToConstant: viewSize).isActive = true
-        
         leftView.translatesAutoresizingMaskIntoConstraints = false
-        leftView.topAnchor.constraint(equalTo: safe.topAnchor).isActive = true
-        leftView.leadingAnchor.constraint(equalTo: safe.leadingAnchor).isActive = true
-        leftView.bottomAnchor.constraint(equalTo: safe.bottomAnchor).isActive = true
-        leftView.widthAnchor.constraint(equalToConstant: viewSize).isActive = true
-        
         rightView.translatesAutoresizingMaskIntoConstraints = false
-        rightView.topAnchor.constraint(equalTo: safe.topAnchor).isActive = true
-        rightView.trailingAnchor.constraint(equalTo: safe.trailingAnchor).isActive = true
-        rightView.bottomAnchor.constraint(equalTo: safe.bottomAnchor).isActive = true
-        rightView.widthAnchor.constraint(equalToConstant: viewSize).isActive = true
         
-
+        topView.topAnchor.constraint(equalTo: safe.topAnchor).isActive = true
+        topView.leadingAnchor.constraint(equalTo: safe.leadingAnchor,constant: borderWidth).isActive = true
+        topView.trailingAnchor.constraint(equalTo: safe.trailingAnchor, constant: -borderWidth).isActive = true
+        topView.heightAnchor.constraint(equalToConstant: borderWidth).isActive = true
+        
+        
+        leftView.topAnchor.constraint(equalTo: safe.topAnchor, constant: borderWidth).isActive = true
+        leftView.leadingAnchor.constraint(equalTo: safe.leadingAnchor).isActive = true
+        leftView.widthAnchor.constraint(equalToConstant: borderWidth).isActive = true
+        leftView.bottomAnchor.constraint(equalTo: safe.bottomAnchor, constant: -borderWidth).isActive = true
+        
+        rightView.topAnchor.constraint(equalTo: safe.topAnchor, constant: borderWidth).isActive = true
+        rightView.widthAnchor.constraint(equalToConstant: borderWidth).isActive = true
+        rightView.trailingAnchor.constraint(equalTo: safe.trailingAnchor).isActive = true
+        rightView.bottomAnchor.constraint(equalTo: safe.bottomAnchor, constant: -borderWidth).isActive = true
+        
+        bottomView.heightAnchor.constraint(equalToConstant: borderWidth).isActive = true
+        bottomView.leadingAnchor.constraint(equalTo: safe.leadingAnchor, constant: borderWidth).isActive = true
+        bottomView.trailingAnchor.constraint(equalTo: safe.trailingAnchor, constant: -borderWidth).isActive = true
+        bottomView.bottomAnchor.constraint(equalTo: safe.bottomAnchor).isActive = true
+        
         highScoreLabel.translatesAutoresizingMaskIntoConstraints = false
         highScoreLabel.topAnchor.constraint(equalTo: topView.bottomAnchor, constant: 20).isActive = true
         highScoreLabel.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
         highScoreLabel.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
         
-        positionStackView.translatesAutoresizingMaskIntoConstraints = false
-        positionStackView.topAnchor.constraint(equalTo: highScoreLabel.bottomAnchor, constant: 20).isActive = true
-        positionStackView.leadingAnchor.constraint(equalTo: leftView.trailingAnchor, constant: 10).isActive = true
-        positionStackView.trailingAnchor.constraint(equalTo: rightView.leadingAnchor, constant: -10).isActive = true
-        positionStackView.heightAnchor.constraint(equalToConstant: 30).isActive = true
+        //        positionStackView.translatesAutoresizingMaskIntoConstraints = false
+        //        positionStackView.topAnchor.constraint(equalTo: highScoreLabel.bottomAnchor, constant: 20).isActive = true
+        //        positionStackView.leadingAnchor.constraint(equalTo: leftView.trailingAnchor, constant: 10).isActive = true
+        //        positionStackView.trailingAnchor.constraint(equalTo: rightView.leadingAnchor, constant: -10).isActive = true
+        //        positionStackView.heightAnchor.constraint(equalToConstant: 30).isActive = true
         
         scoreLabel.translatesAutoresizingMaskIntoConstraints = false
-        scoreLabel.topAnchor.constraint(equalTo: positionStackView.bottomAnchor, constant: 30).isActive = true
+        scoreLabel.topAnchor.constraint(equalTo: highScoreLabel.bottomAnchor, constant: 30).isActive = true
         scoreLabel.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
         scoreLabel.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
         
-        colorView.translatesAutoresizingMaskIntoConstraints = false
-        colorView.widthAnchor.constraint(equalToConstant: ScreenSize.width/1.5).isActive = true
-        colorView.widthAnchor.constraint(equalTo: colorView.heightAnchor, multiplier: 1).isActive = true
-        colorView.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
-        colorView.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
+        colorView.setupContraints()
+        
+        //        colorView.translatesAutoresizingMaskIntoConstraints = false
+        //        colorView.widthAnchor.constraint(equalToConstant: ScreenSize.width/1.5).isActive = true
+        //        colorView.widthAnchor.constraint(equalTo: colorView.heightAnchor, multiplier: 1).isActive = true
+        //        colorView.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+        //        colorView.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
+        
+        checkMarkView = CheckMarkView()
+        
+        addSubview(checkMarkView)
+        
+        checkMarkView.translatesAutoresizingMaskIntoConstraints = false
+        checkMarkView.widthAnchor.constraint(equalToConstant: ScreenSize.width/8).isActive = true
+        checkMarkView.widthAnchor.constraint(equalTo: checkMarkView.heightAnchor, multiplier: 1).isActive = true
+
+        checkMarkView.topAnchor.constraint(equalTo: scoreLabel.bottomAnchor, constant: 40).isActive = true
+        checkMarkView.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
         
     }
- 
+    
     func gameOver(){
         
         Logic.shared.endGame()
-        colorView.fadeTo(opacity: 0.0, time: 0.6)
-
+        
+        checkMarkView.addDrawXMarkAnimation()
+        
+        
+        
         let animationTime = 1.5
         
         restartButton.fadeIn(animationTime)
         scoreLabel.scaleTo(scaleTo: 2.0, time: animationTime)
         
-        let endingPosition = CGPoint(x: scoreLabel.frame.origin.x, y: scoreLabel.frame.origin.y+50)
-        scoreLabel.moveViewTo(endingPosition, time: animationTime)
+//        let endingPosition = CGPoint(x: scoreLabel.frame.origin.x, y: scoreLabel.frame.origin.y+50)
+//        scoreLabel.moveViewTo(endingPosition, time: animationTime)
+        
+        colorView.fadeTo(opacity: 0.0, time: animationTime){
+            self.colorView.backgroundColor = .clear
+        }
         
         updateLabels()
     }
     
     func restartGame(){
         
-        Logic.shared.startGame()
-        colorView.fadeTo(opacity: 1.0, time: 0.3)
-        colorView.scaleTo(scaleTo: 1.0, time: 0.3)
-
         
+        colorView.fadeTo(opacity: 1.0, time: 0.0)
         let animationTime = 0.7
+        self.scoreLabel.scaleTo(scaleTo: 1.0, time: animationTime)
+//        let startingPosition = CGPoint(x: self.scoreLabel.frame.origin.x, y: self.scoreLabel.frame.origin.y)
+//        self.scoreLabel.moveViewTo(startingPosition, time: animationTime)
         
-        restartButton.fadeOut()
-        scoreLabel.scaleTo(scaleTo: 1.0, time: animationTime)
-        
-        let startingPosition = CGPoint(x: scoreLabel.frame.origin.x, y: scoreLabel.frame.origin.y-50)
-        scoreLabel.moveViewTo(startingPosition, time: animationTime)
-        
-        updateLabels()
+        self.restartButton.fadeOut(){
+
+            
+            self.colorView.scaleBackUp(){
+                Logic.shared.startGame()
+
+                
+                self.updateLabels()
+            }
+            
+        }
     }
     
     func updateLabels(){
@@ -190,60 +206,19 @@ class PlayPageView: UIView {
         highScoreLabel.text = "High Score: \(Logic.shared.highScore)"
     }
     
-    func scaleUpAndDownSlotPosition(position: Double){
-
-        let rounded = (position*10).rounded()/10
-        
-
-        for view in positionStackView.arrangedSubviews {
-            let v = view as! PositionView
-            if v.sequencerPosition == rounded {
-                view.scaleTo(scaleTo: 1.4, time: 0.1, {
-                    view.scaleTo(scaleTo: 1.0, time: 0.2)
-                })
-            }
-        }
-    }
     
     func changeColorViewToColor(direction: UISwipeGestureRecognizer.Direction){
         colorView.backgroundColor = Logic.shared.directionToColor(direction: direction)
-    }
-    
-    func changeCorrectSlot(direction: UISwipeGestureRecognizer.Direction){
-        let color = Logic.shared.directionToColor(direction: direction)
-        positionStackView.arrangedSubviews[0].changeBackgroundColorGraduallyTo(color, time: 0.4)
-    }
-    
-    func shrinkColorView(seqPos: Double){
         
-        let rounded = (seqPos*10).rounded()/10
 
-        switch rounded {
-        case 0.0:
-            colorView.scaleTo(scaleTo: 1.0, time: 0.6)
-        case 0.5:
-            colorView.scaleTo(scaleTo: 0.75, time: 0.6)
-        case 1.0:
-            colorView.scaleTo(scaleTo: 0.5, time: 0.6)
-        case 1.5:
-            colorView.scaleTo(scaleTo: 0.25, time: 0.6)
-        default:
-            break
-        }
     }
-    
-    func startShrinkingView(seqLength: Double, seqTempo: Double){
-        colorView.scaleTo(scaleTo: 1.0, time: 0.0)
-        let timePerSecond = 60/seqTempo
-        let timeMultipliedBySeqLength = timePerSecond*2
-        print(timePerSecond)
-        colorView.scaleTo(scaleTo: 0.0000000001, time: timeMultipliedBySeqLength, isSpringy: false)
-        
+
+    func setScaleBackUp(){
+        colorView.scaleBackUp()
     }
     
     override func layoutSubviews() {
         setupRestartButtonContraints()
-        setupPositionCircleConstraints()
     }
     
     required init?(coder aDecoder: NSCoder) {

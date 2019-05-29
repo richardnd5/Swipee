@@ -8,10 +8,8 @@ class OpeningPageView: UIView {
     var bottomView = UIView()
     
     var colorView = ColorViewWithDirection()
-    var positionStackView = UIStackView()
     
-    var titleView : ColorfulTitleView!
-    
+    var titleView : LogoView!
     
     var titleTopAnchor : NSLayoutConstraint!
     var titleYAnchor : NSLayoutConstraint!
@@ -25,11 +23,12 @@ class OpeningPageView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupViews()
-        changeColorViewToColor(direction: .up)
         
         alpha = 0.0
         fadeTo(opacity: 1.0, time: 1.0, {
-            Sound.shared.playTitleSequencer()
+            self.titleView.addDrawPathAnimation { _ in
+                self.moveTitleUp()
+            }
         })
     }
     
@@ -85,20 +84,17 @@ class OpeningPageView: UIView {
         
         titleView.translatesAutoresizingMaskIntoConstraints = false
         
-        
         titleYAnchor = titleView.centerYAnchor.constraint(equalTo: safe.centerYAnchor, constant: -30)
-        titleHeightAnchor = titleView.heightAnchor.constraint(equalToConstant: 40)
-        titleWidthAnchor = titleView.widthAnchor.constraint(equalToConstant: ScreenSize.width/1.5)
         titleXAnchor = titleView.centerXAnchor.constraint(equalTo: centerXAnchor)
         titleTopAnchor = titleView.topAnchor.constraint(equalTo: safe.topAnchor, constant: 20)
+        titleWidthAnchor = titleView.widthAnchor.constraint(equalToConstant: ScreenSize.width/1.5)
+        titleHeightAnchor = titleView.widthAnchor.constraint(equalTo: titleView.heightAnchor, multiplier: 1)
 
-        
         titleYAnchor.isActive = true
         titleHeightAnchor.isActive = true
         titleWidthAnchor.isActive = true
         titleXAnchor.isActive = true
         titleTopAnchor.isActive = false
-        
         
         playButton.translatesAutoresizingMaskIntoConstraints = false
         playButton.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
@@ -106,8 +102,6 @@ class OpeningPageView: UIView {
         playButton.widthAnchor.constraint(equalToConstant: ScreenSize.width/3).isActive = true
         playButton.widthAnchor.constraint(equalTo: playButton.heightAnchor, multiplier: 1).isActive = true
         
-        
-
         fadePageIn()
     }
     
@@ -115,9 +109,8 @@ class OpeningPageView: UIView {
         
         titleYAnchor.isActive = false
         titleTopAnchor.isActive = true
-        titleWidthAnchor.constant = ScreenSize.width/2
 
-        UIView.animate(withDuration: 0.5, delay: 0.0, options: .curveEaseInOut, animations: {
+        UIView.animate(withDuration: 0.7, delay: 0.0, options: .curveEaseInOut, animations: {
             self.layoutIfNeeded()
             
         }, completion: { _ in
@@ -140,78 +133,13 @@ class OpeningPageView: UIView {
     }
     
     private func setupTitle(){
-        titleView = ColorfulTitleView(frame: .zero, title: "Swipee!")
+        titleView = LogoView()
         addSubview(titleView)
     }
-    
-    private func setupPositionStackView(){
-        positionStackView = UIStackView()
-        positionStackView.axis = .horizontal
-        positionStackView.distribution = .equalSpacing
-        addSubview(positionStackView)
-        
-        // add subviews
-        for i in 0..<8 {
-            let view = UIView()
-            view.layer.borderWidth = 1
-            view.layer.borderColor = UIColor.black.cgColor
-            view.tag = i
-            positionStackView.addArrangedSubview(view)
-        }
-        
-        positionStackView.translatesAutoresizingMaskIntoConstraints = false
-        positionStackView.topAnchor.constraint(equalTo: titleView.bottomAnchor, constant: 40).isActive = true
-        positionStackView.leadingAnchor.constraint(equalTo: leftView.trailingAnchor, constant: 10).isActive = true
-        positionStackView.trailingAnchor.constraint(equalTo: rightView.leadingAnchor, constant: -10).isActive = true
-        positionStackView.heightAnchor.constraint(equalToConstant: 20).isActive = true
-    }
 
-    private func setupPositionCircleConstraints(){
-        for view in positionStackView.arrangedSubviews {
-            view.translatesAutoresizingMaskIntoConstraints = false
-            view.widthAnchor.constraint(equalToConstant: positionStackView.frame.height).isActive = true
-            view.widthAnchor.constraint(equalTo: positionStackView.heightAnchor, multiplier: 1).isActive = true
-            view.layer.cornerRadius = view.frame.height/2
-        }
-    }
-
-    func scaleUpAndDownSlotPosition(position: Double){
-        let sequencerInt = Int(position.rounded())
-        
-        for view in positionStackView.arrangedSubviews {
-            if view.tag == sequencerInt {
-                view.scaleTo(scaleTo: 1.4, time: 0.3, {
-                    view.scaleTo(scaleTo: 1.0, time: 0.4)
-                })
-            }
-        }
-    }
-    
-    func changeColorViewToColor(direction: UISwipeGestureRecognizer.Direction){
-        let color = Logic.shared.directionToColor(direction: direction)
-        colorView.changeBackgroundColorGraduallyTo(color, time: 1.0)
-    }
-    
-    func changeCorrectSlot(direction: UISwipeGestureRecognizer.Direction){
-        let color = Logic.shared.directionToColor(direction: direction)
-        positionStackView.arrangedSubviews[4].changeBackgroundColorGraduallyTo(color, time: 0.4)
-    }
-    
-    func rotateColorViewArrow(_ direction: UISwipeGestureRecognizer.Direction){
-        colorView.rotateArrow(direction)
-    }
-    
-    override func layoutSubviews() {
-    }
-    
     func fadePageIn(){
         alpha = 0.0
         fadeTo(opacity: 1.0, time: 1.5)
-    }
-    
-    func handleSwipe(_ direction: UISwipeGestureRecognizer.Direction){
-            moveTitleUp()
-        
     }
     
     required init?(coder aDecoder: NSCoder) {

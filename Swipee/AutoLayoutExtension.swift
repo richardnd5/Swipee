@@ -4,8 +4,6 @@ import UIKit
 extension UIView {
     
     func fillSuperview() {
-        translatesAutoresizingMaskIntoConstraints = false
-        
         anchor(top: superview?.topAnchor, leading: superview?.leadingAnchor, trailing: superview?.trailingAnchor, bottom: superview?.bottomAnchor)
     }
     

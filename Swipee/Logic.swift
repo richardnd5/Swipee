@@ -1,17 +1,3 @@
-/*
- So every cell has a time window.
- 
- When you swipe. It iterates through the array. Checks all fields for validity.
- 
- If one is wrong. Stop the game.
- 
- What is the gameplay look like? What happens?
- 
- Keep track of number of guess swipes.
- 
- Haha. Cute idea. Have each app icon be part of a larger picture. You download all of them and on the home page, it displays a scene of some kind. No functionality, it just looks cool.
- */
-
 import UIKit
 import AudioKit
 
@@ -23,14 +9,20 @@ class Logic {
     var timeRange : ClosedRange<Double>!
     var score = 0
     var highScore = 0
+    var scoreCountdown = 100
     var guessSubmitted = true
     
+    enum GameState {
+        case Playing
+        case GameOver
+    }
+    
+    var gameState = GameState.Playing
 
     init() {
         timeRange = 0.0...4.0
         loadHighScore()
     }
-
     
     func setNewNoteToGuess(){
         guessDirection = generateRandomSwipeDirection()
@@ -74,7 +66,8 @@ class Logic {
         
         if direction == guessDirection {
             if timeRange.contains(time) {
-                incrementScore()
+                let score = calculateScoreBasedOnTime(time)
+                incrementScore(score)
                 guessSubmitted = true
                 return true
             } else if time < timeRange.lowerBound {
@@ -88,8 +81,18 @@ class Logic {
         return true
     }
     
-    func incrementScore(){
-        score += 1
+    func calculateScoreBasedOnTime(_ time: Double) -> Int{
+        
+        let sequenceLength = 2.0
+        let incrementAmount = sequenceLength-time
+        let number = Int(incrementAmount*10)
+        
+        return number
+    }
+    
+    func incrementScore(_ amount: Int){
+        score += amount
+        
         if score > highScore {
             setHighScore()
         }
@@ -101,7 +104,6 @@ class Logic {
     }
     
     func loadHighScore(){
-        //load data
         if UserDefaults.standard.object(forKey: "highScore") != nil {
             highScore = UserDefaults.standard.object(forKey: "highScore") as! Int
         }
@@ -118,30 +120,31 @@ class Logic {
     
     func sequencerBeatDelegator(_ position: Double){
         
-        delegate.UIActionOnSequencerPosition(position)
-
+        if gameState == .Playing {
+            delegate.UIActionOnSequencerPosition(position)
+            handleVibrate(position)
+            
+            if (0.0...0.1).contains(position) {
+                if Logic.shared.guessSubmitted == false && score != 0 {
+                    delegate.gameOver()
+                } else {
+                    Logic.shared.guessSubmitted = false
+                    delegate.changeGuessColor()
+                }
+            }
+        }
+    }
+    
+    func handleVibrate(_ position: Double){
         if Sound.shared.sequencer.tempo > 100 {
             let rounded = (position*10).rounded()/10
-
+            // half time for vibrate
             if rounded.truncatingRemainder(dividingBy: 1) == 0 {
                 Haptics.shared.vibrate()
             }
         } else {
             Haptics.shared.vibrate()
         }
-        
-        if (0.0...0.1).contains(position) {
-            if Logic.shared.guessSubmitted == false && score != 0 {
-                delegate.gameOver()
-            }
-            Logic.shared.guessSubmitted = false
-            delegate.changeGuessColor()
-        }
-        
-        if (1.5...2.0).contains(position) && !Logic.shared.guessSubmitted {
-            
-        }
-        
     }
     
     func directionToColor(direction: UISwipeGestureRecognizer.Direction) -> UIColor {
@@ -160,12 +163,14 @@ class Logic {
     }
     
     func startGame(){
+        gameState = .Playing
         Logic.shared.score = 0
         setNewNoteToGuess()
         Sound.shared.playSequencer()
     }
     
     func endGame(){
+        gameState = .GameOver
         Sound.shared.stopSequencer()
         Sound.shared.playGameOverSound()
         

@@ -14,14 +14,14 @@ class CheckMarkView: UIView, CAAnimationDelegate {
     var completionBlocks = [CAAnimation: (Bool) -> Void]()
     var updateLayerValueForCompletedAnimation : Bool = false
     
-    
-    
     //MARK: - Life Cycle
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupProperties()
         setupLayers()
+        
+        isUserInteractionEnabled = false
     }
     
     required init?(coder aDecoder: NSCoder)

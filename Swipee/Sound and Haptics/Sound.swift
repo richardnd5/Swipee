@@ -3,9 +3,7 @@ import AudioKit
 class Sound {
     
     weak var delegate : CallbackDelegate?
-    weak var titleDelegate : TitleDelegate?
     static var shared = Sound()
-    
     
     var startingTempo : Double = 60
     
@@ -36,7 +34,6 @@ class Sound {
 
         gameOverSound = SoundEffect(fileName: "gameOverSound")
         
-        
         AKSettings.playbackWhileMuted = true
         mixer = AKMixer(kickDrumSound, gameOverSound)
         AudioKit.output = mixer
@@ -44,30 +41,9 @@ class Sound {
         responseSampler.connect(to: mixer)
         
         setupSequencer()
-        setupTitleSequencer()
         
         callCallback.callback = sequencerCallback
         accompCallback.callback = accompCallback
-        titleCallback.callback = titleCallback
-        
-        
-
-    }
-    
-    private func setupTitleSequencer(){
-        
-        titleTrack = titleSequencer.newTrack()
-        
-        for i in 0..<7 {
-            titleTrack.add(midiNoteData: AKMIDINoteData(noteNumber: MIDINoteNumber(60), velocity: MIDIVelocity.random(in: 0...127), channel: 1, duration: AKDuration(beats: 0.5), position: AKDuration(beats: Double(i))))
-        }
-        
-        titleSequencer.setTempo(titleSequencerTempo)
-        titleSequencer.setLength(AKDuration(beats: 7))
-        
-        titleTrack.setMIDIOutput(titleCallback.midiIn)
-        
-        
     }
     
     private func setupSequencer(){
@@ -123,17 +99,6 @@ class Sound {
 
             } else if status == 129 {
                 self.kickDrumSound.stop(noteNumber: 60)
-                self.delegate?.accompTrackNoteOffCallback()
-            }
-        }
-    }
-    
-    private func titleCallback(_ status: UInt8,
-                                _ noteNumber: MIDINoteNumber,
-                                _ velocity: MIDIVelocity) {
-        DispatchQueue.main.async {
-            if status == 145 {
-                self.titleDelegate?.animateTitle(self.titleSequencer.currentRelativePosition.beats)
             }
         }
     }
@@ -149,19 +114,6 @@ class Sound {
             sequencer.stop()
             sequencer.rewind()
             sequencer.setTempo(startingTempo)
-        }
-    }
-    
-    func playTitleSequencer(){
-        if !titleSequencer.isPlaying {
-            titleSequencer.play()
-        }
-    }
-    
-    func stopTitleSequencer(){
-        if titleSequencer.isPlaying {
-            titleSequencer.stop()
-            titleSequencer.rewind()
         }
     }
     
@@ -189,6 +141,5 @@ class Sound {
     func playGameOverSound(){
         gameOverSound.play()
     }
-    
 }
 

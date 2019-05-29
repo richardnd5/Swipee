@@ -36,6 +36,7 @@ class BorderView: UIView {
         layer.cornerRadius = borderWidth/4
         
         setupArrow()
+        
     }
     
     func setupArrow(){
@@ -53,7 +54,7 @@ class BorderView: UIView {
         
     }
     
-    func getArrowString(from direction: UISwipeGestureRecognizer.Direction)-> String {
+    func getArrowString(from direction: UISwipeGestureRecognizer.Direction) -> String {
         switch direction {
         case .up:
             return "upArrow"
@@ -77,7 +78,7 @@ class BorderView: UIView {
     }
     
     func setColorBasedOnDirection(_ direction: UISwipeGestureRecognizer.Direction){
-
+        
         switch direction {
         case .up:
             backgroundColor = .yellow
@@ -107,7 +108,6 @@ class BorderView: UIView {
     func setArrowLayout(){
         arrow.translatesAutoresizingMaskIntoConstraints = false
         
-        
         arrowTop  = topAnchor.constraint(equalTo: topAnchor, constant: 30)
         arrowLeading = leadingAnchor.constraint(equalTo: leadingAnchor, constant: 30)
         arrowTrailing = trailingAnchor.constraint(equalTo: trailingAnchor, constant: -30)
@@ -119,9 +119,10 @@ class BorderView: UIView {
         arrowLeading.isActive = true
         arrowTrailing.isActive = true
         arrowBottom.isActive = true
+        
         arrowWidth.isActive = false
         arrowHeight.isActive = false
-
+        
     }
     
     func shrinkArrowMoveViewToBorder(_ completion: @escaping () -> () = {}){
@@ -134,10 +135,9 @@ class BorderView: UIView {
     
     func setViewToBorder(_ completion: @escaping () -> () = {}){
         
-        
         let dir = direction!
         let safe = superview!.safeAreaLayoutGuide
-
+        
         switch dir {
         case .up:
             top = topAnchor.constraint(equalTo: safe.topAnchor)
@@ -172,7 +172,7 @@ class BorderView: UIView {
         leading.isActive = true
         trailing.isActive = true
         bottom.isActive = true
-
+        
         UIView.animate(withDuration: 0.6, delay: 0.0, options: .curveEaseInOut, animations: {
             self.superview?.layoutIfNeeded()
         }, completion: {_ in
@@ -184,6 +184,7 @@ class BorderView: UIView {
     func springIn(){
         scaleTo(scaleTo: 1.0, time: 1.0, isSpringy: true, delay: 1.0)
     }
+    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

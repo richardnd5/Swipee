@@ -11,6 +11,7 @@
 		220944A922691F9100B18D3F /* playButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 220944A822691F9100B18D3F /* playButton.png */; };
 		220944AB2269220500B18D3F /* CheckMarkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220944AA2269220500B18D3F /* CheckMarkView.swift */; };
 		220944AD2269220A00B18D3F /* QCMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220944AC2269220A00B18D3F /* QCMethod.swift */; };
+		221EDF1C229F38E800A14BCC /* ColorViewWithDirection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221EDF1B229F38E800A14BCC /* ColorViewWithDirection.swift */; };
 		2248CD43227A57A800687CC1 /* ColorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2248CD42227A57A800687CC1 /* ColorView.swift */; };
 		224BBA282252BC7900DF9662 /* restartButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 224BBA272252BC7900DF9662 /* restartButton.png */; };
 		224BBA2A2253F94300DF9662 /* gameOverSound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 224BBA292253F94300DF9662 /* gameOverSound.mp3 */; };
@@ -37,15 +38,11 @@
 		2296E78822527C58000C05BF /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2296E78622527C58000C05BF /* Button.swift */; };
 		2296E78922527C58000C05BF /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2296E78722527C58000C05BF /* UIViewExtension.swift */; };
 		2296E78C22527C5D000C05BF /* backButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 2296E78A22527C5D000C05BF /* backButton.png */; };
-		2296E78F22527C6E000C05BF /* HomePageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2296E78E22527C6E000C05BF /* HomePageView.swift */; };
 		2296E79122527C82000C05BF /* PlayPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2296E79022527C82000C05BF /* PlayPageView.swift */; };
 		2296E79322527D69000C05BF /* AutoLayoutExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2296E79222527D69000C05BF /* AutoLayoutExtension.swift */; };
 		229ECE162255ED1200C20E43 /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229ECE152255ED1200C20E43 /* Global.swift */; };
 		229ECE1C2256EF8800C20E43 /* OpeningPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229ECE1B2256EF8800C20E43 /* OpeningPageView.swift */; };
-		229ECE1E2256F2C700C20E43 /* ColorViewWithDirection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229ECE1D2256F2C700C20E43 /* ColorViewWithDirection.swift */; };
-		22C07CE822614A6A00268A19 /* PositionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C07CE722614A6A00268A19 /* PositionView.swift */; };
-		22EA82672266A3A400D10A3E /* PositionStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22EA82662266A3A400D10A3E /* PositionStackView.swift */; };
-		22FDADF9225705EA004C6191 /* ColorfulTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FDADF8225705EA004C6191 /* ColorfulTitleView.swift */; };
+		22A00A5D22877FD5001F10E8 /* LogoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A00A5C22877FD5001F10E8 /* LogoView.swift */; };
 		34117CA50AB08A7354281C41 /* Pods_SwipeeUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFCC0348A6EA036A5BB2A94F /* Pods_SwipeeUITests.framework */; };
 		68FBBBC14A021774C1405C55 /* Pods_SwipeeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81C70362FDE4A482120D1871 /* Pods_SwipeeTests.framework */; };
 /* End PBXBuildFile section */
@@ -72,6 +69,7 @@
 		220944A822691F9100B18D3F /* playButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = playButton.png; sourceTree = "<group>"; };
 		220944AA2269220500B18D3F /* CheckMarkView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckMarkView.swift; sourceTree = "<group>"; };
 		220944AC2269220A00B18D3F /* QCMethod.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QCMethod.swift; sourceTree = "<group>"; };
+		221EDF1B229F38E800A14BCC /* ColorViewWithDirection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorViewWithDirection.swift; sourceTree = "<group>"; };
 		2248CD42227A57A800687CC1 /* ColorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorView.swift; sourceTree = "<group>"; };
 		224BBA272252BC7900DF9662 /* restartButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = restartButton.png; sourceTree = "<group>"; };
 		224BBA292253F94300DF9662 /* gameOverSound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = gameOverSound.mp3; sourceTree = "<group>"; };
@@ -104,15 +102,11 @@
 		2296E78622527C58000C05BF /* Button.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
 		2296E78722527C58000C05BF /* UIViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		2296E78A22527C5D000C05BF /* backButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backButton.png; sourceTree = "<group>"; };
-		2296E78E22527C6E000C05BF /* HomePageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageView.swift; sourceTree = "<group>"; };
 		2296E79022527C82000C05BF /* PlayPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayPageView.swift; sourceTree = "<group>"; };
 		2296E79222527D69000C05BF /* AutoLayoutExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoLayoutExtension.swift; sourceTree = "<group>"; };
 		229ECE152255ED1200C20E43 /* Global.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
 		229ECE1B2256EF8800C20E43 /* OpeningPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpeningPageView.swift; sourceTree = "<group>"; };
-		229ECE1D2256F2C700C20E43 /* ColorViewWithDirection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorViewWithDirection.swift; sourceTree = "<group>"; };
-		22C07CE722614A6A00268A19 /* PositionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositionView.swift; sourceTree = "<group>"; };
-		22EA82662266A3A400D10A3E /* PositionStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositionStackView.swift; sourceTree = "<group>"; };
-		22FDADF8225705EA004C6191 /* ColorfulTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorfulTitleView.swift; sourceTree = "<group>"; };
+		22A00A5C22877FD5001F10E8 /* LogoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogoView.swift; sourceTree = "<group>"; };
 		34925BC3CA647BE89751F7F3 /* Pods-SwipeeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwipeeTests.debug.xcconfig"; path = "Target Support Files/Pods-SwipeeTests/Pods-SwipeeTests.debug.xcconfig"; sourceTree = "<group>"; };
 		4229B296CCBDBF8102E48CE0 /* Pods-Swipee.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Swipee.release.xcconfig"; path = "Target Support Files/Pods-Swipee/Pods-Swipee.release.xcconfig"; sourceTree = "<group>"; };
 		79B99FBEE4F0D773C076DE36 /* Pods-Swipee.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Swipee.debug.xcconfig"; path = "Target Support Files/Pods-Swipee/Pods-Swipee.debug.xcconfig"; sourceTree = "<group>"; };
@@ -165,14 +159,34 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		221EDF1D229F3BC700A14BCC /* OpeningPage */ = {
+			isa = PBXGroup;
+			children = (
+				229ECE1B2256EF8800C20E43 /* OpeningPageView.swift */,
+				22A00A5C22877FD5001F10E8 /* LogoView.swift */,
+				2296E78622527C58000C05BF /* Button.swift */,
+				221EDF1B229F38E800A14BCC /* ColorViewWithDirection.swift */,
+			);
+			path = OpeningPage;
+			sourceTree = "<group>";
+		};
+		221EDF1E229F3BD900A14BCC /* Sound and Haptics */ = {
+			isa = PBXGroup;
+			children = (
+				2296E77E2251A315000C05BF /* Sound.swift */,
+				224BBA2B2253F94D00DF9662 /* SoundEffect.swift */,
+				2296E7802251A326000C05BF /* SoundSampler.swift */,
+				2296E77722519EF1000C05BF /* Haptics.swift */,
+			);
+			path = "Sound and Haptics";
+			sourceTree = "<group>";
+		};
 		226F5BD9226653C700139B9E /* Tutorial Page */ = {
 			isa = PBXGroup;
 			children = (
 				226F5BCB22659B5B00139B9E /* TutorialPageView.swift */,
 				226F5BCD22659FBF00139B9E /* BorderView.swift */,
 				226F5BD7226651DA00139B9E /* ArrowView.swift */,
-				22EA82662266A3A400D10A3E /* PositionStackView.swift */,
-				22C07CE722614A6A00268A19 /* PositionView.swift */,
 				220944AA2269220500B18D3F /* CheckMarkView.swift */,
 				220944AC2269220A00B18D3F /* QCMethod.swift */,
 			);
@@ -206,19 +220,12 @@
 			children = (
 				2296E74922519D9C000C05BF /* AppDelegate.swift */,
 				2296E74B22519D9C000C05BF /* ViewController.swift */,
-				2296E78E22527C6E000C05BF /* HomePageView.swift */,
-				229ECE1B2256EF8800C20E43 /* OpeningPageView.swift */,
+				221EDF1D229F3BC700A14BCC /* OpeningPage */,
 				226F5BD9226653C700139B9E /* Tutorial Page */,
-				22FDADF8225705EA004C6191 /* ColorfulTitleView.swift */,
-				229ECE1D2256F2C700C20E43 /* ColorViewWithDirection.swift */,
 				22C07CE922614BAE00268A19 /* Play Page */,
+				221EDF1E229F3BD900A14BCC /* Sound and Haptics */,
 				2296E7842252687D000C05BF /* Logic.swift */,
-				2296E77E2251A315000C05BF /* Sound.swift */,
-				224BBA2B2253F94D00DF9662 /* SoundEffect.swift */,
-				2296E7802251A326000C05BF /* SoundSampler.swift */,
 				229ECE152255ED1200C20E43 /* Global.swift */,
-				2296E77722519EF1000C05BF /* Haptics.swift */,
-				2296E78622527C58000C05BF /* Button.swift */,
 				2296E78722527C58000C05BF /* UIViewExtension.swift */,
 				2296E79222527D69000C05BF /* AutoLayoutExtension.swift */,
 				229ECE172255ED7400C20E43 /* Image Assets */,
@@ -510,14 +517,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				22EA82672266A3A400D10A3E /* PositionStackView.swift in Sources */,
 				2296E79322527D69000C05BF /* AutoLayoutExtension.swift in Sources */,
 				2296E78822527C58000C05BF /* Button.swift in Sources */,
 				224BBA2C2253F94E00DF9662 /* SoundEffect.swift in Sources */,
+				221EDF1C229F38E800A14BCC /* ColorViewWithDirection.swift in Sources */,
 				2296E79122527C82000C05BF /* PlayPageView.swift in Sources */,
-				2296E78F22527C6E000C05BF /* HomePageView.swift in Sources */,
-				22FDADF9225705EA004C6191 /* ColorfulTitleView.swift in Sources */,
-				22C07CE822614A6A00268A19 /* PositionView.swift in Sources */,
 				226F5BCC22659B5B00139B9E /* TutorialPageView.swift in Sources */,
 				226F5BCE22659FBF00139B9E /* BorderView.swift in Sources */,
 				229ECE162255ED1200C20E43 /* Global.swift in Sources */,
@@ -525,11 +529,11 @@
 				2248CD43227A57A800687CC1 /* ColorView.swift in Sources */,
 				2296E77822519EF1000C05BF /* Haptics.swift in Sources */,
 				2296E74C22519D9C000C05BF /* ViewController.swift in Sources */,
-				229ECE1E2256F2C700C20E43 /* ColorViewWithDirection.swift in Sources */,
 				2296E74A22519D9C000C05BF /* AppDelegate.swift in Sources */,
 				226F5BD8226651DA00139B9E /* ArrowView.swift in Sources */,
 				220944AB2269220500B18D3F /* CheckMarkView.swift in Sources */,
 				220944AD2269220A00B18D3F /* QCMethod.swift in Sources */,
+				22A00A5D22877FD5001F10E8 /* LogoView.swift in Sources */,
 				2296E7812251A326000C05BF /* SoundSampler.swift in Sources */,
 				2296E7852252687D000C05BF /* Logic.swift in Sources */,
 				2296E78922527C58000C05BF /* UIViewExtension.swift in Sources */,
