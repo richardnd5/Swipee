@@ -131,6 +131,7 @@ class TutorialPageView: UIView {
     func handleSwipe(_ direction: UISwipeGestureRecognizer.Direction){
         if canSwipe {
             stepThroughActions(step: tutorialStep, direction: direction)
+            Sound.shared.playSwipeSound(direction)
         }
     }
 

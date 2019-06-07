@@ -43,6 +43,7 @@
 		229ECE162255ED1200C20E43 /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229ECE152255ED1200C20E43 /* Global.swift */; };
 		229ECE1C2256EF8800C20E43 /* OpeningPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229ECE1B2256EF8800C20E43 /* OpeningPageView.swift */; };
 		22A00A5D22877FD5001F10E8 /* LogoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A00A5C22877FD5001F10E8 /* LogoView.swift */; };
+		22A2A24E22A5E44C00B83839 /* BackgroundLoopsSound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A2A24D22A5E44C00B83839 /* BackgroundLoopsSound.swift */; };
 		34117CA50AB08A7354281C41 /* Pods_SwipeeUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFCC0348A6EA036A5BB2A94F /* Pods_SwipeeUITests.framework */; };
 		68FBBBC14A021774C1405C55 /* Pods_SwipeeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81C70362FDE4A482120D1871 /* Pods_SwipeeTests.framework */; };
 /* End PBXBuildFile section */
@@ -107,6 +108,7 @@
 		229ECE152255ED1200C20E43 /* Global.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
 		229ECE1B2256EF8800C20E43 /* OpeningPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpeningPageView.swift; sourceTree = "<group>"; };
 		22A00A5C22877FD5001F10E8 /* LogoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogoView.swift; sourceTree = "<group>"; };
+		22A2A24D22A5E44C00B83839 /* BackgroundLoopsSound.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundLoopsSound.swift; sourceTree = "<group>"; };
 		34925BC3CA647BE89751F7F3 /* Pods-SwipeeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwipeeTests.debug.xcconfig"; path = "Target Support Files/Pods-SwipeeTests/Pods-SwipeeTests.debug.xcconfig"; sourceTree = "<group>"; };
 		4229B296CCBDBF8102E48CE0 /* Pods-Swipee.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Swipee.release.xcconfig"; path = "Target Support Files/Pods-Swipee/Pods-Swipee.release.xcconfig"; sourceTree = "<group>"; };
 		79B99FBEE4F0D773C076DE36 /* Pods-Swipee.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Swipee.debug.xcconfig"; path = "Target Support Files/Pods-Swipee/Pods-Swipee.debug.xcconfig"; sourceTree = "<group>"; };
@@ -174,8 +176,9 @@
 			isa = PBXGroup;
 			children = (
 				2296E77E2251A315000C05BF /* Sound.swift */,
-				224BBA2B2253F94D00DF9662 /* SoundEffect.swift */,
+				22A2A24D22A5E44C00B83839 /* BackgroundLoopsSound.swift */,
 				2296E7802251A326000C05BF /* SoundSampler.swift */,
+				224BBA2B2253F94D00DF9662 /* SoundEffect.swift */,
 				2296E77722519EF1000C05BF /* Haptics.swift */,
 			);
 			path = "Sound and Haptics";
@@ -524,6 +527,7 @@
 				2296E79122527C82000C05BF /* PlayPageView.swift in Sources */,
 				226F5BCC22659B5B00139B9E /* TutorialPageView.swift in Sources */,
 				226F5BCE22659FBF00139B9E /* BorderView.swift in Sources */,
+				22A2A24E22A5E44C00B83839 /* BackgroundLoopsSound.swift in Sources */,
 				229ECE162255ED1200C20E43 /* Global.swift in Sources */,
 				229ECE1C2256EF8800C20E43 /* OpeningPageView.swift in Sources */,
 				2248CD43227A57A800687CC1 /* ColorView.swift in Sources */,
@@ -716,7 +720,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = come.byeah.Swipee;
+				PRODUCT_BUNDLE_IDENTIFIER = com.byeah.Swipee;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -739,7 +743,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = come.byeah.Swipee;
+				PRODUCT_BUNDLE_IDENTIFIER = com.byeah.Swipee;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

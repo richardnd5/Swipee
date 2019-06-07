@@ -113,6 +113,9 @@ class Logic {
         let sequencerTime = Sound.shared.sequencer.currentRelativePosition.beats
         if Logic.shared.checkSwipe(direction: swipe, time: sequencerTime) {
             delegate.scorePoint()
+            delegate.flingSquare(swipe)
+            Sound.shared.playSwipeSound(swipe)
+
         } else {
             delegate.gameOver()
         }

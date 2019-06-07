@@ -9,15 +9,13 @@ class PlayPageView: UIView {
     var restartButton : Button!
     var scoreLabel = UILabel()
     var highScoreLabel = UILabel()
-    var colorView : ColorView!
+    
     var borderWidth : CGFloat = 20
+    
+    var colorView : ColorView!
     
     var checkMarkView: CheckMarkView!
 
-    
-
-
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupViews()
@@ -28,7 +26,7 @@ class PlayPageView: UIView {
     
     func setupViews(){
         
-        colorView = ColorView(frame: .zero, color: .clear)
+        
         
         topView.backgroundColor = .yellow
         leftView.backgroundColor = .red
@@ -44,8 +42,10 @@ class PlayPageView: UIView {
         addSubview(leftView)
         addSubview(rightView)
         addSubview(bottomView)
-        addSubview(colorView)
-        colorView.isUserInteractionEnabled = false
+        
+        setupColorView()
+
+
         
         setupScoreLabel()
         setupHighSCoreLabel()
@@ -56,6 +56,14 @@ class PlayPageView: UIView {
         fadeTo(opacity: 1.0, time: 1.0, {
             Logic.shared.startGame()
         })
+    }
+    
+    func setupColorView(){
+        colorView = ColorView(frame: .zero, color: .clear)
+        addSubview(colorView)
+        colorView.isUserInteractionEnabled = false
+        colorView.setupContraints()
+
     }
     
     private func setupScoreLabel(){
@@ -124,25 +132,13 @@ class PlayPageView: UIView {
         highScoreLabel.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
         highScoreLabel.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
         
-        //        positionStackView.translatesAutoresizingMaskIntoConstraints = false
-        //        positionStackView.topAnchor.constraint(equalTo: highScoreLabel.bottomAnchor, constant: 20).isActive = true
-        //        positionStackView.leadingAnchor.constraint(equalTo: leftView.trailingAnchor, constant: 10).isActive = true
-        //        positionStackView.trailingAnchor.constraint(equalTo: rightView.leadingAnchor, constant: -10).isActive = true
-        //        positionStackView.heightAnchor.constraint(equalToConstant: 30).isActive = true
-        
         scoreLabel.translatesAutoresizingMaskIntoConstraints = false
         scoreLabel.topAnchor.constraint(equalTo: highScoreLabel.bottomAnchor, constant: 30).isActive = true
         scoreLabel.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
         scoreLabel.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
         
         colorView.setupContraints()
-        
-        //        colorView.translatesAutoresizingMaskIntoConstraints = false
-        //        colorView.widthAnchor.constraint(equalToConstant: ScreenSize.width/1.5).isActive = true
-        //        colorView.widthAnchor.constraint(equalTo: colorView.heightAnchor, multiplier: 1).isActive = true
-        //        colorView.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
-        //        colorView.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
-        
+
         checkMarkView = CheckMarkView()
         
         addSubview(checkMarkView)
@@ -162,16 +158,11 @@ class PlayPageView: UIView {
         
         checkMarkView.addDrawXMarkAnimation()
         
-        
-        
         let animationTime = 1.5
         
         restartButton.fadeIn(animationTime)
         scoreLabel.scaleTo(scaleTo: 2.0, time: animationTime)
-        
-//        let endingPosition = CGPoint(x: scoreLabel.frame.origin.x, y: scoreLabel.frame.origin.y+50)
-//        scoreLabel.moveViewTo(endingPosition, time: animationTime)
-        
+
         colorView.fadeTo(opacity: 0.0, time: animationTime){
             self.colorView.backgroundColor = .clear
         }
@@ -185,19 +176,12 @@ class PlayPageView: UIView {
         colorView.fadeTo(opacity: 1.0, time: 0.0)
         let animationTime = 0.7
         self.scoreLabel.scaleTo(scaleTo: 1.0, time: animationTime)
-//        let startingPosition = CGPoint(x: self.scoreLabel.frame.origin.x, y: self.scoreLabel.frame.origin.y)
-//        self.scoreLabel.moveViewTo(startingPosition, time: animationTime)
-        
-        self.restartButton.fadeOut(){
 
-            
+        self.restartButton.fadeOut(){
             self.colorView.scaleBackUp(){
                 Logic.shared.startGame()
-
-                
                 self.updateLabels()
             }
-            
         }
     }
     
@@ -206,11 +190,18 @@ class PlayPageView: UIView {
         highScoreLabel.text = "High Score: \(Logic.shared.highScore)"
     }
     
+    func flingSquare(_ direction: UISwipeGestureRecognizer.Direction){
+//        colorView.flingToDirection(direction) {
+//
+//            self.colorView.removeFromSuperview()
+//            self.setupColorView()
+//            self.colorView.setupContraints()
+//
+//        }
+    }
     
     func changeColorViewToColor(direction: UISwipeGestureRecognizer.Direction){
         colorView.backgroundColor = Logic.shared.directionToColor(direction: direction)
-        
-
     }
 
     func setScaleBackUp(){

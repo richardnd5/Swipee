@@ -10,6 +10,7 @@ protocol GameDelegate : class {
     func gameOver()
     func changeGuessColor()
     func loadPlayPage()
+    func flingSquare(_ direction: UISwipeGestureRecognizer.Direction)
 }
 
 class ViewController: UIViewController, CallbackDelegate, GameDelegate {
@@ -27,6 +28,7 @@ class ViewController: UIViewController, CallbackDelegate, GameDelegate {
         setupSwipeGestures()
         Sound.shared.delegate = self
         Logic.shared.delegate = self
+
     }
     
     func loadOpeningPage(){
@@ -79,8 +81,13 @@ class ViewController: UIViewController, CallbackDelegate, GameDelegate {
     func scorePoint(){
         playPage.updateLabels()
         playPage.checkMarkView.addDrawCheckMarkAnimation()
+        
         Logic.shared.setNewNoteToGuess()
         Sound.shared.incrementSequencerTempo()
+    }
+    
+    func flingSquare(_ direction: UISwipeGestureRecognizer.Direction) {
+        playPage.flingSquare(direction)
     }
     
     func gameOver(){
@@ -120,7 +127,6 @@ class ViewController: UIViewController, CallbackDelegate, GameDelegate {
     // MARK - Gestures
     @objc func handleSwipe(_ sender: UISwipeGestureRecognizer){
         let direction = sender.direction
-        Sound.shared.playSwipeSound(direction)
         
         switch gameState {
         case .opening:

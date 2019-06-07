@@ -30,6 +30,13 @@ class OpeningPageView: UIView {
                 self.moveTitleUp()
             }
         })
+        
+        
+        
+        
+        
+        
+        
     }
     
     func setupViews(){
@@ -83,7 +90,7 @@ class OpeningPageView: UIView {
         rightView.widthAnchor.constraint(equalToConstant: viewSize).isActive = true
         
         titleView.translatesAutoresizingMaskIntoConstraints = false
-        
+
         titleYAnchor = titleView.centerYAnchor.constraint(equalTo: safe.centerYAnchor, constant: -30)
         titleXAnchor = titleView.centerXAnchor.constraint(equalTo: centerXAnchor)
         titleTopAnchor = titleView.topAnchor.constraint(equalTo: safe.topAnchor, constant: 20)
@@ -97,8 +104,9 @@ class OpeningPageView: UIView {
         titleTopAnchor.isActive = false
         
         playButton.translatesAutoresizingMaskIntoConstraints = false
-        playButton.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
+
         playButton.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+        playButton.bottomAnchor.constraint(equalTo: safe.bottomAnchor, constant: -40).isActive = true
         playButton.widthAnchor.constraint(equalToConstant: ScreenSize.width/3).isActive = true
         playButton.widthAnchor.constraint(equalTo: playButton.heightAnchor, multiplier: 1).isActive = true
         

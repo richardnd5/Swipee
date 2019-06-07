@@ -15,5 +15,11 @@ class SoundSampler : AKSampler {
     
     func playDirection(_ direction: SoundDirection){
         play(noteNumber: direction.rawValue, velocity: 127)
+//        print("played direction!   \(direction)")
+
+    }
+    
+    func stopDirection(_ direction: SoundDirection){
+        stop(noteNumber: direction.rawValue)
     }
 }

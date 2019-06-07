@@ -39,6 +39,7 @@ class Sound {
         AudioKit.output = mixer
         do { try! AudioKit.start() }
         responseSampler.connect(to: mixer)
+        callSampler.connect(to: mixer)
         
         setupSequencer()
         
@@ -82,9 +83,10 @@ class Sound {
                            _ velocity: MIDIVelocity) {
         DispatchQueue.main.async {
             if status == 145 {
-                self.responseSampler.play(noteNumber: noteNumber, velocity: velocity)
+                self.callSampler.play(noteNumber: noteNumber, velocity: velocity)
+                
             } else if status == 129 {
-                self.responseSampler.stop(noteNumber: noteNumber)
+                self.callSampler.stop(noteNumber: noteNumber)
             }
         }
     }
@@ -127,13 +129,23 @@ class Sound {
         switch direction {
         case .up:
             responseSampler.playDirection(.up)
+            Timer.scheduledTimer(withTimeInterval: 0.24, repeats: false, block:{_ in
+                self.responseSampler.stopDirection(.up)
+            })
         case .down:
             responseSampler.playDirection(.down)
+            Timer.scheduledTimer(withTimeInterval: 0.24, repeats: false, block:{_ in
+                self.responseSampler.stopDirection(.down)
+            })
         case .left:
             responseSampler.playDirection(.left)
-        case .right:
+            Timer.scheduledTimer(withTimeInterval: 0.24, repeats: false, block:{_ in
+                self.responseSampler.stopDirection(.left)
+            })        case .right:
             responseSampler.playDirection(.right)
-        default:
+            Timer.scheduledTimer(withTimeInterval: 0.24, repeats: false, block:{_ in
+                self.responseSampler.stopDirection(.right)
+            })        default:
             return
         }
     }
