@@ -37,6 +37,7 @@ class Sound {
         AKSettings.playbackWhileMuted = true
         mixer = AKMixer(kickDrumSound, gameOverSound)
         AudioKit.output = mixer
+        
         do { try! AudioKit.start() }
         responseSampler.connect(to: mixer)
         callSampler.connect(to: mixer)

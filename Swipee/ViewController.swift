@@ -10,11 +10,10 @@ protocol GameDelegate : class {
     func gameOver()
     func changeGuessColor()
     func loadPlayPage()
-    func flingSquare(_ direction: UISwipeGestureRecognizer.Direction)
+//    func flingSquare(_ direction: UISwipeGestureRecognizer.Direction)
 }
 
 class ViewController: UIViewController, CallbackDelegate, GameDelegate {
-
     var playPage : PlayPageView!
     var openingPage : OpeningPageView!
     var tutorialPage : TutorialPageView!
@@ -86,9 +85,9 @@ class ViewController: UIViewController, CallbackDelegate, GameDelegate {
         Sound.shared.incrementSequencerTempo()
     }
     
-    func flingSquare(_ direction: UISwipeGestureRecognizer.Direction) {
-        playPage.flingSquare(direction)
-    }
+//    func flingSquare(_ direction: UISwipeGestureRecognizer.Direction) {
+//        playPage.flingSquare(direction)
+//    }
     
     func gameOver(){
         playPage.gameOver()

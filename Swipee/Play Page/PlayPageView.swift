@@ -190,7 +190,7 @@ class PlayPageView: UIView {
         highScoreLabel.text = "High Score: \(Logic.shared.highScore)"
     }
     
-    func flingSquare(_ direction: UISwipeGestureRecognizer.Direction){
+//    func flingSquare(_ direction: UISwipeGestureRecognizer.Direction){
 //        colorView.flingToDirection(direction) {
 //
 //            self.colorView.removeFromSuperview()
@@ -198,7 +198,7 @@ class PlayPageView: UIView {
 //            self.colorView.setupContraints()
 //
 //        }
-    }
+//    }
     
     func changeColorViewToColor(direction: UISwipeGestureRecognizer.Direction){
         colorView.backgroundColor = Logic.shared.directionToColor(direction: direction)

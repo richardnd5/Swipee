@@ -30,13 +30,6 @@ class OpeningPageView: UIView {
                 self.moveTitleUp()
             }
         })
-        
-        
-        
-        
-        
-        
-        
     }
     
     func setupViews(){
